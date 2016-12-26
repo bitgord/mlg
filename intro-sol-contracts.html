@@ -91,125 +91,146 @@
                 </div>
                 <!-- End: Navbar Area  -->
   
-		<!-- Begin Content -->
-		<section class="post-content">
-			<div class="container">
-				<div class="row">
+        <!-- Begin Content -->
+        <section class="post-content">
+            <div class="container">
+                <div class="row">
                     <br><br><br>
-					<!-- Begin page content -->
-					<div class="col-xs-12 col-md-9 col-md-push-3">
-					
-						<div class="content-box">
-					    	<p class="blog-date"><span>26</span><br>Dec<br>2016</p>
-					        <img src="https://avatars1.githubusercontent.com/u/16297473?v=3&s=400" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
-					    </div>
-					    <div class="post-info">
-					       	<span>Michael Gord  |  bitcoin,  blockchain,  sign transaction, nodejs, development</span>
-					    </div>
+                    <!-- Begin page content -->
+                    <div class="col-xs-12 col-md-9 col-md-push-3">
+                    
+                        <div class="content-box">
+                            <p class="blog-date"><span>26</span><br>Dec<br>2016</p>
+                            <img src="http://bluzelle.com/wp-content/uploads/2015/09/smartcontracts.png" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
+                        </div>
+                        <div class="post-info">
+                            <span>Michael Gord  |  ethereum,  blockchain,  solidity, smart contracts, nodejs, blockchain development</span>
+                        </div>
 
-					    <h2 class="section-title">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</h2>
-					    <div class="divider-light"></div>
+                        <h2 class="section-title">Get Started with Solidity and Ethereum Smart Contracts</h2>
+                        <div class="divider-light"></div>
 
-					    <div class="page-content">
-					    	<p>You must have node and npm downloaded on your computer. After this tutorial you should have sent an ethereum transaction with test-ether on testrpc.</p>
-                            <code>npm install web3 ethereumjs-tx ethereumjs-util </code>
-                             <p>Download web3, ethereumjs-tx and ethereumjs-util from your terminal.</p>
-                            <code>
-                                node
+                        <div class="page-content">
+                             <p>You must have node and npm downloaded on your computer. After this tutorial you should have created and deployed an ethereum smart contract on the testrpc blockchain.</p>
+                            <code>{<br>
+                                  "dependencies": {<br>
+                                    "web3": "0.17.0-alpha",<br>
+                                    "solc": "^0.4.4"<br>
+                                  }<br>
+                            } 
                             </code>
-                            <p> Go to your node console.</p>
+                            <p>Include the code above in your package.json file.</p>
                             <code>
-                                var Web3 = require("web3")
+                                npm install
+                            </code>
+                            <p> Download the dependencies from your command line.</p>
+                            <code>
+                                var Web3 = require("web3")<br>
+                                var solc = require("solc")
                             </code>
                             <p> 
-                                Require web3.                    </p>
-                                                                                    <code>
-                    var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+                                Require dependencies in your node console.
+                            </p>
+                            <code>
+                                var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
                             </code>
                             <p>
-                            Get web3 Instance in Node Console. 8545 is the default port to connect to.
+                                Create new web3 instance. Localhost:8545 is the default host.
+                            </p>
+                            <code>
+                                contract Introduction {<br>
+                                  function displayMessage() constant returns (string) {<br>
+                                    return "Congrats on your first smart contract";<br>
+                                  }<br>
+                                }    
+                            </code>
+                            <p>
+                                Make a new file called Introduction.sol (or whatever you want) and include the above code. This contract has a displayMessage function that can return a string. 
+                            </p>
+                            <code>
+                                var source = `[[contract syntax]]`
+                            </code>
+                            <p>
+                                Create a variable for the source of the contract. 
+                            </p>
+                            <code>
+                                var compiled = solc.compile(source)
+                            </code>
+                            <p>
+                                Create a variable for the compiled contract.
+                            </p>
+                            <code>
+                                compiled.contracts.Introduction
+                            </code>
+                            <p>
+                                Query the compiled contract and view the bytecode and opcodes. 
+                            </p>
+                            <code>
+                                compiled.contracts.Introduction.interface
+                            </code>
+                            <p>
+                                View the ABI, which is the public facing interface that shows what methods are available to call.
                             </p>
                              <code>
-                            testrpc    
+                                var abi = JSON.parse(compiled.contracts.Introduction.interface)
                             </code>
                             <p>
-                        In a new terminal window run testrpc. 
+                                Set the ABI as a variable.
                             </p>
                             <code>
-                            web3.eth.getBalance(web3.eth.accounts[0])    
+                                var IntroductionContract = web3.eth.contract(abi)
                             </code>
                             <p>
-                        Check balance of account[0] in Wei. 
+                                Create a contract object that is deployed to the ethereum testrpc blockchain.
                             </p>
                             <code>
-                            web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0]), 'ether')
+                                var deployed = Introduction.new({<br>
+                                  from: web3.eth.accounts[0],<br>
+                                  data: compiled.contracts.Introduction.bytecode,<br>
+                                  gas: 4700000,<br>
+                                  gasPrice: 5,<br>
+                                }, (error, contract) => { })<br>
                             </code>
                             <p>
-                            Check balance of account[0] in Ether. 
+                                Make a variable of the deployed contract.
                             </p>
                             <code>
-                        acct1 = web3.eth.accounts[0]<br>
-                        acct2 = web3.eth.accounts[1]<br>
-                        acct3 = web3.eth.accounts[2]
+                                web3.eth.getTransacton("[[transaction id]]")
                             </code>
                             <p>
-                        Create account helper methods.
+                                In your testrpc terminal window you will see that the contract has gone through. A contract and a transaction address will be posted. Find transaction info with the above command.
                             </p>
                             <code>
-                            var balance = (acct) => { return web3.fromWei(web3.eth.getBalance(acct), 'ether').toNumber()}
+                                deployed.address
                             </code>
                             <p>
-                            Create balance method. 
+                                View the address of the deployed contract.
                             </p>
                             <code>
-                            balance(acct1)
+                                deployed.address
                             </code>
                             <p>
-                            Query balance of account[0] to make sure its working. 
+                                Call a function on the contract. In this case, we will call the displayMessage function and the message we input into the solidity.
                             </p>
-                            <code>
-                            web3.eth.sendTransaction({from: acct1, to:acct2, value: web3.toWei(1, 'ether'), gasLimit: 21000, gasPrice: 20000000000})
-                            </code>
-                            <p>
-                            Send 1 test ether from acct1 to acct2. 
-                            </p>
-                             <code>
-                            var txHash = _
-                            </code>
-                            <p>
-                            Create variable for txHash output from above. 
-                            </p>
-                             <code>
-                            balance(acct2)
-                            balance(acct1)
-                            </code>
-                            <p>
-                            Query balance of acct1 and acct1 to make sure the transaction went through. 
-                            </p>
-                             <code>
-                            web3.eth.getTransaction(txHash)
-                            </code>
-                            <p>
-                            Check transaction data from txHash. 
-                            </p>
-						</div> <!-- End row -->
-					</div> <!-- End page content -->
 
-					<!-- Begin Sidebar -->
-					<div class="col-xs-12 col-md-3 col-md-pull-9">
-						<aside class="sidebar-nav">
-							<h3 class="sidebar-heading">Latest Posts</h3>
-							<ul>
-                                <li><a href="intro-sol-contracts.html">Get started with solidity smart contracts</a></li>
-								<li><a href="bitcoinjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
-                                <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address</a></li>
-							</ul>
-						</aside>
-					</div> <!-- End Sidebar -->
+                        </div> <!-- End row -->
+                    </div> <!-- End page content -->
 
-				</div> <!-- End row -->
-			</div> <!-- End container -->
-		</section> <!-- End Content section -->
+                    <!-- Begin Sidebar -->
+                    <div class="col-xs-12 col-md-3 col-md-pull-9">
+                        <aside class="sidebar-nav">
+                            <h3 class="sidebar-heading">Latest Posts</h3>
+                            <ul>
+                                <li><a href="intro-sol-contracts.html">Get started with solidity and ethereum smart contracts</a></li>
+                                <li><a href="bitcoinjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
+                                <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
+                            </ul>
+                        </aside>
+                    </div> <!-- End Sidebar -->
+
+                </div> <!-- End row -->
+            </div> <!-- End container -->
+        </section> <!-- End Content section -->
 
 
          <section class="cta-form" id="contact" style="background-image: url('http://www.downvids.net/video/bestimages/img-obj-plexus-after-effects-762.jpg')">
@@ -296,4 +317,5 @@
     
     </body>
 
-</html>
+</html>                            
+
