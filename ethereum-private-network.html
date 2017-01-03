@@ -101,53 +101,61 @@
 					<div class="col-xs-12 col-md-9 col-md-push-3">
 					
 						<div class="content-box">
-					    	<p class="blog-date"><span>26</span><br>Dec<br>2016</p>
-					        <img src="http://fletcherpenney.net/bitcoin.png" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
+					    	<p class="blog-date"><span>3</span><br>Jan<br>2017</p>
+					        <img src="https://avatars1.githubusercontent.com/u/6250754?v=3&s=400" alt="Use Go-Ethereum to Setup your Own Private Ethereum Blockchain">
 					    </div>
 					    <div class="post-info">
-					       	<span>Michael Gord  |  bitcoin,  blockchain,  sign transaction, nodejs, development</span>
+					       	<span>Michael Gord  |  ethereum,  blockchain,  private blockchain, coinbase, development, go-thereum, geth</span>
 					    </div>
 
-					    <h2 class="section-title">Use Bitcoinjs to Generate a New Bitcoin Address and Private Key</h2>
+					    <h2 class="section-title">Use Go-Ethereum to Setup your Own Private Ethereum Blockchain</h2>
 					    <div class="divider-light"></div>
 
 					    <div class="page-content">
-					    	<p>You must have node and npm downloaded on your computer. After this tutorial you should have both a public bitcoin address and private key saved as variables.</p>
-                            <code>npm install bitcoinjs-lib </code>
-                             <p>Download bitcoinjs library from your node terminal.</p>
-                           
+                            <p>For this tutorial to work you must have geth downloaded.</p><br />
+					    	<p>First you must create a genesis.json file with the parameters below. Each field can be changed however you want. It is recommended that you make a random nonce for your private ethereum blockchain to avoid the chance of someone connecting to your private blockchain. The allec object is to prefund accounts on your blockchain with tokens.</p>
                             <code>
-                                var bitcoin = require("bitcoinjs-lib")
+                                {
+                                  "coinbase"   : "0x0000000000000000000000000000000000000000",<br />
+                                  "difficulty" : "0x20000",<br />
+                                  "extraData"  : "",<br />
+                                  "gasLimit"   : "0x2fefd8",<br />
+                                  "nonce"      : "0x0000000000000042",<br />
+                                  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",<br />
+                                  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",<br />
+                                  "timestamp"  : "0x00",<br />
+                                  "alloc": {<br />
+                                    "0x0000000000000000000000000000000000000001": {<br />
+                                        "balance": "111111111"<br />
+                                    },<br />
+                                    "0x0000000000000000000000000000000000000002": {<br />
+                                        "balance": "222222222"<br />
+                                    }<br />
+                                  }<br />
+                                }
                             </code>
-                            <p> Require bitcoinjs-lib.</p>
+                            <p>Once you have setup your genesis.json file you need to run it from your terminal with this command to initiative your private blockchain. Setting a datadir is optional, however it is recommended because otherwise your blockchain ethereum blockchain will be started in a default folder, or can get connected to the live ethereum blockchain if you are running a full ethereum node.
+                            </p>
                             <code>
-                                var keyPair = bitcoin.ECPair.makeRandom();
+                                geth --datadir /path/to/genesis.json init genesis.json
                             </code>
+                            <p>When executed in your terminal, you should see a success message. You should also see a folder called "chaindata" that was created in the data directory that you initiated your private ethereum blockchain.</p>
+                            <img src="assets/img/private-eth-chain-1.jpg" class="img-responsive" alt="Initialive Private Ethereum Blockchain">
                             <p> 
-                                Make variable for keyPair.                    </p>
-                                                                                    <code>
-                    console.log(keyPair.getAddress());
-                            </code>
-                            <p>
-                            Test address by logging address to console. A valid bitcoin address should be returned.
+                                You can now connect to your private ethereum blockchain using geth, which will run on your testnet the same way as it does on the live ethereum blockchain. Run the following command to connect geth with your private blockchain.
                             </p>
                             <code>
-                    var address = keyPair.getAddress();    
+                                geth --datadir /path/to/genesis.json
                             </code>
                             <p>
-                        Save bitcoin address result to a variable.
+                            In the message that is returned from the terminal, it is important to note the enode you are listening at and the IPC endpoint to connect other nodes to your private blockchain.
                             </p>
-                            <code>
-                        console.log(keyPair.toWif());
-                            </code>
+                            <img src="assets/img/private-eth-chain-2.jpg" class="img-responsive" alt="Connect Geth to Private Ethereum Blockchain">
                             <p>
-                            Test private key by logging to console. A valid bitcoin private key should be returned.
+                            If your terminal returns a message saying that the server has started, you have successfully connected geth to your private ethereum blockchain.
                             </p>
-                            <code>
-                        var pkey = keyPair.toWIF();
-                            </code>
                             <p>
-                        Save bitcoin private key result to a variable.
+                                You should now have 3 more folders created in your private ethereum blockchain data directory including dapp, nodekey and nodes.
                             </p>
 
 						</div> <!-- End row -->
@@ -159,7 +167,7 @@
 							<h3 class="sidebar-heading">Latest Posts</h3>
 							<ul>
                                 <li><a href="ethereum-private-network.html">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
-                                <li><a href="intro-sol-contracts.html">Get started with Solidity and Ethereum smart contracts</a></li>
+                                <li><a href="intro-sol-contracts.html">Get started with solidity and ethereum smart contracts</a></li>
 								<li><a href="bitcoinjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
                                 <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
 							</ul>
