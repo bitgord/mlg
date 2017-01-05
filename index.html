@@ -51,7 +51,8 @@
 </head>
 <!-- Alternate Body Classes: .modern and .vintage -->
 
-<body id="page-top" class="modern">
+<body id="page-top">
+
     <!-- Navigation -->
     <!-- Note: navbar-default and navbar-inverse are both supported with this theme. -->
 
@@ -61,11 +62,45 @@
             <hr>
         </div>
         <div class="scroll-down">
-            <a class="btn page-scroll" href="#about"><i class="fa fa-angle-down fa-fw"></i></a>
+            <a class="btn page-scroll" href="#myNavbar"><i class="fa fa-angle-down fa-fw"></i></a>
         </div>
     </header>
+          
+        <!-- Start: Navbar Area  -->
+            <div class="header-navbar" id="header-navbar">            
+                <!-- Navbar Option -->
+                <nav class="navbar navbar-inverse navbar-expanded" id="myNavbar" style="padding:10px 0px;">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- TEMPLATE LOGO -->
+                            <a class="navbar-brand" href="index.html"><span><img src="assets/img/logo.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></span></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" id="navbar-nav-2">
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html">Home</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#about">About</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#process">Services</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#clients">Clients</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="blog.html">Blog</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#contact">Contact</a></li> 
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+            </div>
+            <!-- End: Navbar Area  -->
 
-     <section id="about">
+    <section id="about">
         <div class="container-fluid">
             <div class="row text-center">
                 <div class="col-lg-12 wow fadeIn">
@@ -90,11 +125,11 @@
                             <i class="fa fa-connectdevelop"></i>
                         </div>
                         <div class="media-body">
-                            <h3 class="media-heading">Blockchain Consulting</h3>
+                            <h3 class="media-heading">Blockchain<br/> Consulting</h3>
                             <ul>
                                 <li>Strategic Planning</li>
                                 <li>Blockchain Architecture</li>
-                                <li>White Paper Review</li>
+                                <li>White Paper Writing</li>
                                 <li>Technical Audit</li>
                             </ul>
                         </div>
@@ -110,7 +145,7 @@
                             <ul>
                                 <li>Test/Private Blockchain Setup</li>
                                 <li>Token Development</li>
-                                <li>Account Registration</li>
+                                <li>Wallet Development</li>
                                 <li>Data Storage</li>
                             </ul>
                         </div>
@@ -189,7 +224,7 @@
 
             <div class="clear"></div>
             <a href="blog.html">
-                <center><div class="btn btn-default" style="width:30%">See All Tutorials</div></center>
+                <center><div class="btn btn-default" style="width:30%">See All</div></center>
             </a>
             <div class="clear"></div>
             </div>
@@ -352,7 +387,7 @@
     
             <div class="row copyright">
                 <div class="col-lg-12">
-                    <center><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></center>
+                    <center><a href="index.html"><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></a></center>
                     <br>
                     <p class="small" style="color:black">&copy; 2016 MLG Blockchain Consulting</p>
                 </div>

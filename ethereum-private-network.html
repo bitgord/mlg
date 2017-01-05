@@ -51,7 +51,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-    <body>
+    <body id="page-top">
         
         <!-- Start: Header Area 
         ================================-->
@@ -59,36 +59,36 @@
             <div class="fix overlay-color">
 
                 <!-- Start: Navbar Area  -->
-                <div class="header-navbar" id="header-navbar">
-                    
+                <div class="header-navbar" id="header-navbar">            
                     <!-- Navbar Option -->
-                    <nav class="navbar navbar-static-top header-nav-2" id="myNavbar">
-                        <div class="container">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#finiti-navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-
-                                <!-- TEMPLATE LOGO -->
-                                <a class="navbar-brand" href="index.html"><span><img src="assets/img/logo.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></span></a>
-                            </div>
-
-                            <div class="collapse navbar-collapse" id="finiti-navbar-collapse">
-                                <ul id="navbar-nav-2" class="nav navbar-nav navbar-right">
-                                    <!--  -->
-                                    <li class="section-selector-2"><a href="index.html">Home</a></li>
-                                    <li class="section-selector-2"><a href="index.html#about">About</a></li>
-                                    <li class="section-selector-2"><a href="index.html#process">Services</a></li>
-                                    <li class="section-selector-2"><a href="index.html#clients">Clients</a></li>
-                                    <li class="section-selector-2"><a href="blog.html">Blog</a></li>
-                                    <li class="section-selector-2"><a href="index.html#contact">Contact</a></li> 
-                                </ul>
-                            </div>
+                    <nav class="navbar navbar-inverse navbar-expanded" id="myNavbar" style="padding:10px 0px;">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- TEMPLATE LOGO -->
+                            <a class="navbar-brand" href="index.html"><span><img src="assets/img/logo.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></span></a>
                         </div>
-                    </nav>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" id="navbar-nav-2">
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html">Home</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#about">About</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#process">Services</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#clients">Clients</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="blog.html">Blog</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#contact">Contact</a></li> 
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
                 </div>
                 <!-- End: Navbar Area  -->
   
@@ -113,7 +113,7 @@
 
 					    <div class="page-content">
                             <p>For this tutorial to work you must have geth downloaded.</p><br />
-					    	<p>First you must create a genesis.json file with the parameters below. Each field can be changed however you want. It is recommended that you make a random nonce for your private ethereum blockchain to avoid the chance of someone connecting to your private blockchain. The allec object is to prefund accounts on your blockchain with tokens.</p>
+					    	<p>First you must create a genesis.json file with the parameters below. Each field can be changed however you want. It is recommended that you make a random nonce for your private ethereum network to avoid the chance of someone connecting to your blockchain. The allec object is to prefund accounts on your blockchain with tokens.</p>
                             <code>
                                 {
                                   "coinbase"   : "0x0000000000000000000000000000000000000000",<br />
@@ -134,7 +134,7 @@
                                   }<br />
                                 }
                             </code>
-                            <p>Once you have setup your genesis.json file you need to run it from your terminal with this command to initiative your private blockchain. Setting a datadir is optional, however it is recommended because otherwise your blockchain ethereum blockchain will be started in a default folder, or can get connected to the live ethereum blockchain if you are running a full ethereum node.
+                            <p>Once you have setup your genesis.json file you need to run it from your terminal with this command to initiative your private blockchain network. Setting a data directory is optional, however it is recommended because otherwise your blockchain will be started in a default folder, or can get connected to the live ethereum blockchain if you are running a full ethereum node, which you probably don't want.
                             </p>
                             <code>
                                 geth --datadir /path/to/genesis.json init genesis.json
@@ -142,13 +142,13 @@
                             <p>When executed in your terminal, you should see a success message. You should also see a folder called "chaindata" that was created in the data directory that you initiated your private ethereum blockchain.</p>
                             <img src="assets/img/private-eth-chain-1.jpg" class="img-responsive" alt="Initialive Private Ethereum Blockchain">
                             <p> 
-                                You can now connect to your private ethereum blockchain using geth, which will run on your testnet the same way as it does on the live ethereum blockchain. Run the following command to connect geth with your private blockchain.
+                                You can now connect to your private network using geth, which will run on your testnet the same way as it does on the live ethereum blockchain. Run the following command to connect geth with your private blockchain.
                             </p>
                             <code>
                                 geth --datadir /path/to/genesis.json
                             </code>
                             <p>
-                            In the message that is returned from the terminal, it is important to note the enode you are listening at and the IPC endpoint to connect other nodes to your private blockchain.
+                            In the message that is returned from the terminal, it is important to note the enode you are listening at and the IPC endpoint to connect other nodes to your blockchain.
                             </p>
                             <img src="assets/img/private-eth-chain-2.jpg" class="img-responsive" alt="Connect Geth to Private Ethereum Blockchain">
                             <p>
@@ -157,7 +157,9 @@
                             <p>
                                 You should now have 3 more folders created in your private ethereum blockchain data directory including dapp, nodekey and nodes.
                             </p>
-
+                            <p>
+                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
+                            </p>
 						</div> <!-- End row -->
 					</div> <!-- End page content -->
 
@@ -225,7 +227,7 @@
     
             <div class="row copyright">
                 <div class="col-lg-12">
-                    <center><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></center>
+                    <center><a href="index.html"><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></a></center>
                     <br>
                     <p class="small" style="color:black">&copy; 2016 MLG Blockchain Consulting</p>
                 </div>
@@ -235,30 +237,24 @@
 
         <!-- SCRIPTS 
         ========================================-->
-        <script src="js/jquery-1.11.3.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/matchMedia.js"></script>
-        <script src="js/navbar.matchMedia.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <script src="js/jquery.localScroll.min.js"></script>
-        <script src="js/smoothscroll.js"></script>
-        <script src="js/owl.carousel.min.js"></script>  
-        <script src="js/jquery.nav.js"></script>    
-        <script src="js/wow.min.js"></script>   
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.countdown.js"></script>
-        <script src="js/jquery.flexslider-min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-        <script src="js/jquery.counterup.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/animated-headline.js"></script>
-
-        <!-- Custom Script 
-        ==========================================-->
-        <script src="js/custom-scripts-3.js"></script>
+        <!-- Core Scripts -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugin Scripts -->
+    <script src="assets/js/plugins/jquery.easing.min.js"></script>
+    <script src="assets/js/plugins/classie.js"></script>
+    <script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/background/core.js"></script>
+    <script src="assets/js/plugins/background/transition.js"></script>
+    <script src="assets/js/plugins/background/background.js"></script>
+    <script src="assets/js/plugins/jquery.mixitup.js"></script>
+    <script src="assets/js/plugins/wow/wow.min.js"></script>
+    <script src="assets/js/contact_me.js"></script>
+    <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
+    <!-- Vitality Theme Scripts -->
+    <script src="assets/js/vitality.js"></script>
 
     
     </body>
