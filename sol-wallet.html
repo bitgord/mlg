@@ -92,87 +92,146 @@
                 </div>
                 <!-- End: Navbar Area  -->
   
-		<!-- Begin Content -->
-		<section class="post-content">
-			<div class="container">
-				<div class="row">
+        <!-- Begin Content -->
+        <section class="post-content">
+            <div class="container">
+                <div class="row">
                     <br><br><br>
-					<!-- Begin page content -->
-					<div class="col-xs-12 col-md-9 col-md-push-3">
-					
-						<div class="content-box">
-					    	<p class="blog-date"><span>26</span><br>Dec<br>2016</p>
-					        <img src="http://fletcherpenney.net/bitcoin.png" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
-					    </div>
-					    <div class="post-info">
-					       	<span>Michael Gord  |  bitcoin,  blockchain,  sign transaction, nodejs, development</span>
-					    </div>
+                    <!-- Begin page content -->
+                    <div class="col-xs-12 col-md-9 col-md-push-3">
+                    
+                        <div class="content-box">
+                            <p class="blog-date"><span>8</span><br>Jan<br>2017</p>
+                            <img src="assets/img/sol-wallet.jpg" alt="How to Setup a Wallet Smart Contract With Solidity">
+                        </div>
+                        <div class="post-info">
+                            <span>Michael Gord  |  ethereum,  blockchain,  solidity, smart contracts, nodejs, blockchain development</span>
+                        </div>
 
-					    <h2 class="section-title">Use Bitcoinjs to Generate a New Bitcoin Address and Private Key</h2>
-					    <div class="divider-light"></div>
+                        <h2 class="section-title">How to Setup a Wallet Smart Contract With Solidity</h2>
+                        <div class="divider-light"></div>
 
-					    <div class="page-content">
-					    	<p>You must have node and npm downloaded on your computer. After this tutorial you should have both a public bitcoin address and private key saved as variables.</p>
-                            <code>npm install bitcoinjs-lib </code>
-                             <p>Download bitcoinjs library from your node terminal.</p>
-                           
+                        <div class="page-content">
+                             <p>Below is example solidity code to create your own smart contract. Refer to the <a href="intro-sol-contracts.html">introduction to Solidity</a> tutorial if you need help deploying and interacting with this.</p>
+                            
                             <code>
-                                var bitcoin = require("bitcoinjs-lib")
-                            </code>
-                            <p> Require bitcoinjs-lib.</p>
-                            <code>
-                                var keyPair = bitcoin.ECPair.makeRandom();
-                            </code>
-                            <p> 
-                                Make variable for keyPair.                    </p>
-                                                                                    <code>
-                    console.log(keyPair.getAddress());
-                            </code>
-                            <p>
-                            Test address by logging address to console. A valid bitcoin address should be returned.
+                            contract SimpleWallet {<br />
+                            <br />
+                            // Address is the owner<br />
+                            address owner;<br />
+                            <br />
+                            struct WithdrawlStruct {<br />
+                                address to;<br />
+                                uint amount;<br />
+                            }<br />
+                            <br />
+                            // create an object for senders
+                            struct Senders {<br />
+                                bool allowed;<br />
+                                uint amount_sends;<br />
+                                mapping(uint => WithdrawlStruct) withdrawls;<br />
+                            }<br />
+                            <br />
+                            // mapping to determine if sender is allowed to send funds<br />
+                            mapping(address => Senders) isAllowedToSendFundsMapping;<br />
+                            <br />
+                            // event for deposit and for withdraw<br />
+                            event Deposit(address _sender, uint amount);<br />
+                            event Withdraw(address _sender, uint amount, address _beneficiary);<br />
+                            <br />
+                            // set the owner as soon as the wallet is created<br />
+                            function SimpleWallet() {<br />
+                                owner = msg.sender;<br />
+                            }<br />
+                            <br />
+                            // this anonymous function is called when the contract receives funds from an address that is allowed to send funds<br />
+                            // the msg.sender needs to be the owner and allowed to send funds to deposit them<br />
+                            // we also emit an event called deposit and declare the msg sender and the value<br />
+                            function() {<br />
+                                if(isAllowedToSend(msg.sender)) {<br />
+                                    Deposit(msg.sender, msg.value);<br />
+                                } else {<br />
+                                    throw;<br />
+                                }<br />
+                            }<br />
+                            <br />
+                            // Someone that is allowed to send funds is allowed to send<br />  
+                            // in this case if it is the owner or the boolean mapping is true<br />
+                            // their balance must be higher than the event<br />
+                            // if it goes through we emit a withdraw event and return the balance<br />
+                            <br />
+                            function sendFunds(uint amount, address receiver) returns (uint) {<br />
+                                if(isAllowedToSend(msg.sender)) {<br />
+                                    if(this.balance >= amount) {<br />
+                                        if(!receiver.send(amount)) {<br />
+                                            throw;<br />
+                                        }<br />
+                                        Withdraw(msg.sender, amount, receiver);<br />
+                                        <br />
+                                        // log each withdrawl, receiver, amount<br />
+                                        isAllowedToSendFundsMapping[msg.sender].amount_sends++;<br />
+                                        isAllowedToSendFundsMapping[msg.sender].withdrawls[<br />isAllowedToSendFundsMapping[msg.sender].amount_sends].to = receiver;<br />
+                                        isAllowedToSendFundsMapping[msg.sender].withdrawls[<br />isAllowedToSendFundsMapping[msg.sender].amount_sends].amount = amount;<br />
+                                        return this.balance;<br />
+                                    }<br />
+                                }<br />
+                            }<br />
+                            <br />
+                            // Allowed to send funds when the boolean mapping is set to true<br />
+                            function allowAddressToSendMoney(address _address) {<br />
+                                if(msg.sender == owner) {<br />
+                                    isAllowedToSendFundsMapping[_address].allowed = true;<br />
+                                }<br />
+                            }<br />
+                            <br />
+                            // Not allowed to send funds when the boolean mapping is set to false<br />
+                            function disallowAddressToSendMoney(address _address) {<br />
+                                if(msg.sender == owner) {<br />
+                                    isAllowedToSendFundsMapping[_address].allowed = false;<br />
+                                }<br />
+                            }<br />
+                            <br />
+                            // Check function which returns the boolean value<br />
+                            function isAllowedToSend(address _address) constant returns (bool) {<br />
+                                return isAllowedToSendFundsMapping[_address].allowed || _address == owner;<br />
+                            }<br />
+                            <br />
+                            // check to make sure the msg.sender is the owner or it will suicide the contract and return funds to the owner<br />
+                            function killWallet() {<br />
+                                if(msg.sender == owner) {<br />
+                                    suicide(owner);<br />
+                                }<br />
+                            }<br />
+                        }<br />
+                        </code>
+                        <br />
+                        <p>
+                            For more information on Solidity, go to the <a href="https://solidity.readthedocs.io/en/develop/">Solidity Developer documents</a>.
+                        </p>
+                    </br>
+                        <p>
+                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. For more blockchain development tutorials like these go to our blog <a href="blog.html">MLG Blockchain Blog</a>.
                             </p>
-                            <code>
-                    var address = keyPair.getAddress();    
-                            </code>
-                            <p>
-                        Save bitcoin address result to a variable.
-                            </p>
-                            <code>
-                        console.log(keyPair.toWif());
-                            </code>
-                            <p>
-                            Test private key by logging to console. A valid bitcoin private key should be returned.
-                            </p>
-                            <code>
-                        var pkey = keyPair.toWIF();
-                            </code>
-                            <p>
-                        Save bitcoin private key result to a variable.
-                            </p>
-                            <p>
-                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
-                            </p>
+                        </div> <!-- End row -->
+                    </div> <!-- End page content -->
 
-						</div> <!-- End row -->
-					</div> <!-- End page content -->
-
-					<!-- Begin Sidebar -->
-					<div class="col-xs-12 col-md-3 col-md-pull-9">
-						<aside class="sidebar-nav">
-							<h3 class="sidebar-heading">Latest Posts</h3>
-							<ul>
+                    <!-- Begin Sidebar -->
+                    <div class="col-xs-12 col-md-3 col-md-pull-9">
+                        <aside class="sidebar-nav">
+                            <h3 class="sidebar-heading">Latest Posts</h3>
+                            <ul>
                                 <li><a href="sol-wallet.html">How to Setup a Wallet Smart Contract with Solidity</a></li>
                                 <li><a href="ethereum-private-network.html">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
                                 <li><a href="intro-sol-contracts.html">Get started with solidity and ethereum smart contracts</a></li>
                                 <li><a href="bitcoinjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
                                 <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
-							</ul>
-						</aside>
-					</div> <!-- End Sidebar -->
+                            </ul>
+                        </aside>
+                    </div> <!-- End Sidebar -->
 
-				</div> <!-- End row -->
-			</div> <!-- End container -->
-		</section> <!-- End Content section -->
+                </div> <!-- End row -->
+            </div> <!-- End container -->
+        </section> <!-- End Content section -->
 
 
          <section class="cta-form" id="contact" style="background-image: url('http://www.downvids.net/video/bestimages/img-obj-plexus-after-effects-762.jpg')">
@@ -231,7 +290,7 @@
 
         <!-- SCRIPTS 
         ========================================-->
-       <!-- Core Scripts -->
+        <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugin Scripts -->
@@ -253,4 +312,5 @@
     
     </body>
 
-</html>
+</html>                            
+
