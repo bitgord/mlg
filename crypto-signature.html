@@ -6,10 +6,10 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A tutorial that goes over how to generate a new bitcoin address and private key using Nodejs and Bitcoinjs ...">
+    <meta name="description" content="A tutorial that goes over how to generate a digital signature from your private key using Go ...">
     <meta name="author" content="MLG Blockchain">
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>Use Go to Create a Crypto Signature from Block to Blockchain</title>
+    <title>How to Use Go to Create a Crypto Signature</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -127,38 +127,33 @@
                             This can be further encoded with crypto/X.509 standard format which is used to encode keys and digital certificates.
                             </p>
                             <img src="assets/img/crypto-x509-encoded.jpg" class="img-responsive" alt="Encoded with crypto/X.509">
-                            <code>
-                                var bitcoin = require("bitcoinjs-lib")
-                            </code>
-                            <p> Require bitcoinjs-lib.</p>
-                            <code>
-                                var keyPair = bitcoin.ECPair.makeRandom();
-                            </code>
-                            <p> 
-                                Make variable for keyPair.                    </p>
-                                                                                    <code>
-                    console.log(keyPair.getAddress());
-                            </code>
                             <p>
-                            Test address by logging address to console. A valid bitcoin address should be returned.
+                            You can now use your private key to generate a public key.
                             </p>
-                            <code>
-                    var address = keyPair.getAddress();    
-                            </code>
+                            <img src="assets/img/generate-public-key-go.jpg" class="img-responsive" alt="Use your private key to generate a public key">
                             <p>
-                        Save bitcoin address result to a variable.
+                            This can be further encoded with package encoding/asn1 format which serialises a public key to DER-encoded format.
                             </p>
-                            <code>
-                        console.log(keyPair.toWif());
-                            </code>
+                            <img src="assets/img/asn1-format-serialized.jpg" class="img-responsive" alt="Serialize public key to DER-encoded format">
+                            <h3>Public Key Cryptography</h3>
+                            <h4>
+                                Hash the messages/document and generate signature and verify.
+                            </h4>
                             <p>
-                            Test private key by logging to console. A valid bitcoin private key should be returned.
+                            There is a digital signature in a method of preventing "denial" and verifying the message. A digital signature is an application of public key cryptography, a message sender signs with a secret key, and a recipient verifies with a public key. That is, even a third party can verify the transmission of the message.
                             </p>
-                            <code>
-                        var pkey = keyPair.toWIF();
-                            </code>
                             <p>
-                        Save bitcoin private key result to a variable.
+                            In the Go language, digital signature by DSA (Digital Signature Algorithm), RSA, elliptic curve cryptography is implemented as standard. Here’s what it looks like using crypto/rsa - messages are hashed along with private key to generate a signature.
+                            </p>
+                            <img src="assets/img/generate-sig-go.jpg" class="img-responsive" alt="Use Golang crypto/rsa to hash a message with your private key">
+                            <p>Here is the digital signature that is returned.</p>
+                            <img src="assets/img/returned-go-signature.jpg" class="img-responsive" alt="Digital signature">
+                            <p>
+                                The public key can now confirm that the private key combined with a particular hash would have created that signature as shown above. This signature is confirming that a document has not been changed since the private key signed it. The above command return type is an error. A valid signature is indicated by returning a nil error.
+                            </p>
+                            <img src="assets/img/verify-signature.jpg" class="img-responsive" alt="Verify signature">
+                            <p>
+                                Refer to the <a href="https://github.com/MLG-Blockchain/Golang-Crypto-sign" target="_blank">Github repository</a> for the source code.
                             </p>
                             <p>
                                 <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
@@ -172,6 +167,7 @@
 						<aside class="sidebar-nav">
 							<h3 class="sidebar-heading">Latest Posts</h3>
 							<ul>
+                                <li><a href="crypto-signature.html" target="_blank">How to Use Go to Create a Crypto Signature</a></li>
                                 <li><a href="setup-bitcoind.html" target="_blank">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
                                 <li><a href="eris-chain.html" target="_blank">How to Setup a Private Blockchain with Eris</a></li>
                                 <li><a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract with Solidity</a></li>
