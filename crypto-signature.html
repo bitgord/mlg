@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="A tutorial that goes over how to generate a new bitcoin address and private key using Nodejs and Bitcoinjs ...">
+    <meta name="author" content="MLG Blockchain">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>Use Go to Create a Crypto Signature from Block to Blockchain</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Retina.js - Load first for faster HQ mobile images. -->
+    <script src="assets/js/plugins/retina/retina.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Default Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,600,500,700,800,900' rel='stylesheet' type='text/css'>
+    <!-- Modern Style Fonts (Include these is you are using body.modern!) -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Vintage Style Fonts (Include these if you are using body.vintage!) -->
+    <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Plugin CSS -->
+    <link href="assets/css/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/owl-carousel/owl.theme.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/owl-carousel/owl.transitions.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/background.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/animate.css" rel="stylesheet" type="text/css">
+    <!-- Vitality Theme CSS -->
+    <!-- Uncomment the color scheme you want to use. -->
+    <link href="assets/css/vitality-red.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/mlg.css" rel="stylesheet" type="text/css">
+</head>
+    <body id="page-top">
+        
+        <!-- Start: Header Area 
+        ================================-->
+        <header class="header-background header header-2" id="header" data-stellar-background-ratio="0.5"> 
+            <div class="fix overlay-color">
+
+                <!-- Start: Navbar Area  -->
+                <div class="header-navbar" id="header-navbar">            
+                    <!-- Navbar Option -->
+                    <nav class="navbar navbar-inverse navbar-expanded" id="myNavbar" style="padding:10px 0px;">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- TEMPLATE LOGO -->
+                            <a class="navbar-brand" href="index.html"><span><img src="assets/img/logo.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></span></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" id="navbar-nav-2">
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html">Home</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#about">About</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#process">Services</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#clients">Clients</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="blog.html">Blog</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html#contact">Contact</a></li> 
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+                </div>
+                <!-- End: Navbar Area  -->
+  
+		<!-- Begin Content -->
+		<section class="post-content">
+			<div class="container">
+				<div class="row">
+                    <br><br><br>
+					<!-- Begin page content -->
+					<div class="col-xs-12 col-md-9 col-md-push-3">
+					
+						<div class="content-box">
+					    	<p class="blog-date"><span>6</span><br>Feb<br>2017</p>
+					        <img src="http://fletcherpenney.net/bitcoin.png" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
+					    </div>
+					    <div class="post-info">
+					       	<span>Srinivasan  |  bitcoin,  blockchain,  encryption, hash, golang, blockchain development</span>
+					    </div>
+
+					    <h2 class="section-title">Use Go to Create a Crypto Signature from Block to Blockchain</h2>
+					    <div class="divider-light"></div>
+
+					    <div class="page-content">
+					    	<p>Blockchain is a tamper-proof distributed record of transactions that is maintained by a network of computers and secured through advanced cryptography to improve the efficiency of worldwide financial transactions and to transform the global financial network. </p>
+                            <p>
+                            The three key blockchain features are: transparency, decentralized structure and multi-signature. In the absence of trusted third parties, the security and maintenance of the system is a shared responsibility. In peer-to-peer networking technology, if there is no proper mathematical encryption or security, then it is not autonomous.</p>
+                            <p>
+                            This is an article to explain how data transmission is encrypted and shared between both the parties who do not know each other but are able to trust each other through the blockchain.</p>
+                            <h3>Encryption and Hash Functions</h3>
+                            <p>Public and private key cryptography is a good place to start. It involves the transformation of a message, or plain text, in such a way as to render the text unreadable without a special key. When the same key is used for both encryption and decryption, the process is known as symmetric, or secret key, encryption; asymmetric, or public key, encryption uses a pair of keys for encryption and decryption, one public and the other private.
+                            </p>
+                            <p>
+                            A very common use case to use them is to prove your identity. You place your public key where anyone can see it, then use the private one to later confirm you are who you say you are.
+                            </p>
+                            <ul>
+                                <li>Step 1: -  Generate a public/private key pair</li>
+                                <li>Step 2: -  Hash the document to get signed</li>
+                                <li>Step 3: -  Encrypt document with private key for digital sign</li>
+                                <li>Step 4: -  Append the signature with the document</li>
+                                <li>Step 5: -  Place the document on the blockchain</li>
+                            </ul>
+                            <h4>
+                                Generate Public / Private Key Pair
+                            </h4>
+                            <p>
+                                We can see how to create private key and generate public key practically with ‘Golang’, Go has <a href="https://github.com/MLG-Blockchain/crypto" target="_blank">crypto/rsa standard library</a> to use.
+                            </p>
+                            <img src="assets/img/generate-privKey-go.jpg" class="img-responsive" alt="Generate Private Key of 2048 bits length">
+                            <p>
+                            This can be further encoded with crypto/X.509 standard format which is used to encode keys and digital certificates.
+                            </p>
+                            <img src="assets/img/crypto-x509-encoded.jpg" class="img-responsive" alt="Encoded with crypto/X.509">
+                            <code>
+                                var bitcoin = require("bitcoinjs-lib")
+                            </code>
+                            <p> Require bitcoinjs-lib.</p>
+                            <code>
+                                var keyPair = bitcoin.ECPair.makeRandom();
+                            </code>
+                            <p> 
+                                Make variable for keyPair.                    </p>
+                                                                                    <code>
+                    console.log(keyPair.getAddress());
+                            </code>
+                            <p>
+                            Test address by logging address to console. A valid bitcoin address should be returned.
+                            </p>
+                            <code>
+                    var address = keyPair.getAddress();    
+                            </code>
+                            <p>
+                        Save bitcoin address result to a variable.
+                            </p>
+                            <code>
+                        console.log(keyPair.toWif());
+                            </code>
+                            <p>
+                            Test private key by logging to console. A valid bitcoin private key should be returned.
+                            </p>
+                            <code>
+                        var pkey = keyPair.toWIF();
+                            </code>
+                            <p>
+                        Save bitcoin private key result to a variable.
+                            </p>
+                            <p>
+                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
+                            </p>
+
+						</div> <!-- End row -->
+					</div> <!-- End page content -->
+
+					<!-- Begin Sidebar -->
+					<div class="col-xs-12 col-md-3 col-md-pull-9">
+						<aside class="sidebar-nav">
+							<h3 class="sidebar-heading">Latest Posts</h3>
+							<ul>
+                                <li><a href="setup-bitcoind.html" target="_blank">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
+                                <li><a href="eris-chain.html" target="_blank">How to Setup a Private Blockchain with Eris</a></li>
+                                <li><a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract with Solidity</a></li>
+                                <li><a href="ethereum-private-network.html" target="_blank">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
+                                <li><a href="intro-sol-contracts.html" target="_blank">Get started with solidity and ethereum smart contracts</a></li>
+                                <li><a href="bitcoinjs-sign.html" target="_blank">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
+                                <li><a href="bitcoinjs-address.html" target="_blank">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
+							</ul>
+						</aside>
+					</div> <!-- End Sidebar -->
+
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section> <!-- End Content section -->
+
+
+         <section class="cta-form" id="contact" style="background-image: url('http://www.downvids.net/video/bestimages/img-obj-plexus-after-effects-762.jpg')">
+        <div class="container text-center">
+            <h4 style="color:white">Be the first to hear about the newest advancements in blockchain technology!</h3>
+            <hr class>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <!-- Replace the form action in the line below with your MailChimp embed action! For more informatin on how to do this please visit the Docs! -->
+                        <form role="form" action="//startbootstrap.us3.list-manage.com/subscribe/post?u=531af730d8629808bd96cf489&amp;id=afb284632f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                            <div class="input-group input-group-lg">
+                                <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email address...">
+                                <span class="input-group-btn">
+                                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe!</button>
+                                </span>
+                            </div>
+                            <div id="mce-responses">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End MailChimp Signup Form -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer" class="footer">
+        <div class="container text-center">
+            <div class="row" style="color:black">
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-phone"></i> Call</h4>
+                    <p>647-377-3489</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-map-marker"></i> Visit</h4>
+                    <p>Toronto, Canada</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-envelope"></i> Email</h4>
+                    <p style="color:black">hello@mlgblockchain.com</p>
+                </div>
+            </div>
+    
+            <div class="row copyright">
+                <div class="col-lg-12">
+                    <center><a href="index.html"><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></a></center>
+                    <br>
+                    <p class="small" style="color:black">&copy; 2017 MLG Blockchain Consulting</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <!-- SCRIPTS 
+        ========================================-->
+       <!-- Core Scripts -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugin Scripts -->
+    <script src="assets/js/plugins/google-analytics.js"></script>
+    <script src="assets/js/plugins/jquery.easing.min.js"></script>
+    <script src="assets/js/plugins/classie.js"></script>
+    <script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/background/core.js"></script>
+    <script src="assets/js/plugins/background/transition.js"></script>
+    <script src="assets/js/plugins/background/background.js"></script>
+    <script src="assets/js/plugins/jquery.mixitup.js"></script>
+    <script src="assets/js/plugins/wow/wow.min.js"></script>
+    <script src="assets/js/contact_me.js"></script>
+    <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
+    <!-- Vitality Theme Scripts -->
+    <script src="assets/js/vitality.js"></script>
+
+    
+    </body>
+
+</html>
