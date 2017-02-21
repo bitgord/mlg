@@ -6,10 +6,10 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A tutorial that goes over how to download solidity and create and deploy an ethereum smart contract ...">
+    <meta name="description" content="Part one on how to use Meteor to create an Ethereum wallet ...">
     <meta name="author" content="MLG Blockchain">
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>Get Started with Solidity and Ethereum Smart Contracts | MLG Blockchain</title>
+    <title>How to Use Meteor to Create an Ethereum Wallet - Part 1</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -36,20 +36,6 @@
     <!-- Uncomment the color scheme you want to use. -->
     <link href="assets/css/vitality-red.css" rel="stylesheet" type="text/css">
     <link href="assets/css/mlg.css" rel="stylesheet" type="text/css">
-    <!-- <link href="assets/css/vitality-aqua.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-blue.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-green.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-orange.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-pink.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-purple.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-tan.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-turquoise.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-yellow.css" rel="stylesheet" type="text/css"> -->
-    <!-- IE8 support for HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 </head>
     <body id="page-top">
         
@@ -92,139 +78,100 @@
                 </div>
                 <!-- End: Navbar Area  -->
   
-        <!-- Begin Content -->
-        <section class="post-content">
-            <div class="container">
-                <div class="row">
+		<!-- Begin Content -->
+		<section class="post-content">
+			<div class="container">
+				<div class="row">
                     <br><br><br>
-                    <!-- Begin page content -->
-                    <div class="col-xs-12 col-md-9 col-md-push-3">
-                    
-                        <div class="content-box">
-                            <p class="blog-date"><span>27</span><br>Dec<br>2016</p>
-                            <img src="http://bluzelle.com/wp-content/uploads/2015/09/smartcontracts.png" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
-                        </div>
-                        <div class="post-info">
-                            <span>Michael Gord  |  ethereum,  blockchain,  solidity, smart contracts, nodejs, blockchain development</span>
-                        </div>
+					<!-- Begin page content -->
+					<div class="col-xs-12 col-md-9 col-md-push-3">
+					
+						<div class="content-box">
+					    	<p class="blog-date"><span>19</span><br>Feb<br>2017</p>
+					        <img src="https://i.ytimg.com/vi/6exqmam91JE/hqdefault.jpg" alt="How to Use Meteor to Create an Ethereum Wallet">
+					    </div>
+					    <div class="post-info">
+					       	<span>Srinivasan  |  ethereum,  blockchain,  meteor, wallet, blockchain development, cryptography, geth, testrpc, truffle</span>
+					    </div>
 
-                        <h2 class="section-title">Get Started with Solidity and Ethereum Smart Contracts</h2>
-                        <div class="divider-light"></div>
+					    <h2 class="section-title">How to Use Meteor to Create an Ethereum Wallet - 1</h2>
+					    <div class="divider-light"></div>
 
-                        <div class="page-content">
-                             <p>You must have node and npm downloaded on your computer. After this tutorial you should have created and deployed an ethereum smart contract on the testrpc blockchain.</p>
-                            <code>{<br>
-                                  "dependencies": {<br>
-                                    "web3": "0.17.0-alpha",<br>
-                                    "solc": "^0.4.4"<br>
-                                  }<br>
-                            } 
-                            </code>
-                            <p>Include the code above in your package.json file.</p>
-                            <code>
-                                npm install
-                            </code>
-                            <p> Download the dependencies from your command line.</p>
-                            <code>
-                                var Web3 = require("web3")<br>
-                                var solc = require("solc")
-                            </code>
-                            <p> 
-                                Require dependencies in your node console.
-                            </p>
-                            <code>
-                                var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
-                            </code>
+					    <div class="page-content">
+					    	<p>This is the first in a two part series on how to create an Ethereum wallet using Meteor. This tutorial will go over how to get account balance information in Ethereum. To see how to create a wallet smart contract, you can check out <a href="sol-wallet.html">this solidity development tutorial.</a> </p>
                             <p>
-                                Create new web3 instance. Localhost:8545 is the default host.
-                            </p>
-                            <code>
-                                contract Introduction {<br>
-                                  function displayMessage() constant returns (string) {<br>
-                                    return "Congrats on your first smart contract";<br>
-                                  }<br>
-                                }    
-                            </code>
+                            There are certain prerequesites that you must have in order to follow this tutorial. These are listed below</p>
+                            <ul>
+                                <li>Install Go-Ethereum to set up your own private Ethereum Blockchain (You can refer to our <a href="ethereum-private-network.html">tutorial for how to setup a private ethereum Blockchain</a> </li>
+                                <li>Install the TestRPC Ethereum client for testing and development - <a href-"https://github.com/ethereumjs/testrpc">https://github.com/ethereumjs/testrpc</a></li>
+                                <li>Install Truffle which is a testing framework and asset pipeline for Ethereum - <a href="https://github.com/ConsenSys/truffle">https://github.com/ConsenSys/truffle</a></li>
+                                <li>Install Meteor JS which is a full-stack JavaScript platform for developing modern web and mobile applications - <a href="https://www.meteor.com/install">https://www.meteor.com/install</a></li>
+                            </ul>
                             <p>
-                                Make a new file called Introduction.sol (or whatever you want) and include the above code. This contract has a displayMessage function that can return a string. 
+                            To build the wallet Dapp start with the following file structure.</p>
+                            <img src="assets/img/meteor-wallet/folder.jpg" class="img-responsive" alt="Folders in Meteor Ethereum Wallet">
+                            <p>                                From the root of our folder in the client directory create a /lib folder which is used to store all code that is meant to run on both the client and the server. Create the file init.js inside the /lib directory which is to use the Ethereum JavaScript API called web3. Web3 is an API to interact with the ethereum blockchain using a connection to a local node.
                             </p>
-                            <code>
-                                var source = `[[contract syntax]]`
-                            </code>
                             <p>
-                                Create a variable for the source of the contract. 
+                                Add the meteor web3 package to our project folder as shown below.
                             </p>
-                            <code>
-                                var compiled = solc.compile(source)
-                            </code>
+                            <img src="assets/img/meteor-wallet/add-web3.jpg" class="img-responsive" alt="Add web3 in Meteor">
                             <p>
-                                Create a variable for the compiled contract.
+                            Do the same thing to add the ethereum: accounts package which will give information about the currently available ethereum accounts and balances. Next add iron: router package which will help to navigate to different pages through the web browser and add the twbs: bootstrap API for styling your front end. Use the following command in your init.js file to create a web3 object.
                             </p>
-                            <code>
-                                compiled.contracts.Introduction
-                            </code>
+                            <img src="assets/img/meteor-wallet/new-web3.jpg" class="img-responsive" alt="Create web3 object">
                             <p>
-                                Query the compiled contract and view the bytecode and opcodes. 
+                            You can now use your private key to generate a public key.
                             </p>
-                            <code>
-                                compiled.contracts.Introduction.interface
-                            </code>
+                            <img src="assets/img/generate-public-key-go.jpg" class="img-responsive" alt="Use your private key to generate a public key">
                             <p>
-                                View the ABI, which is the public facing interface that shows what methods are available to call.
+                            Also initialize ethereum accounts with the following code.
                             </p>
-                             <code>
-                                var abi = JSON.parse(compiled.contracts.Introduction.interface)
-                            </code>
+                            <code>EthAccounts.init()</code>
                             <p>
-                                Set the ABI as a variable.
+                            Now we can start to deign the UI using meteorJS and HTML. In your client folder create a folder called templates and then two folders inside called components and views.
                             </p>
-                            <code>
-                                var IntroductionContract = web3.eth.contract(abi)
-                            </code>
                             <p>
-                                Create a contract object that is deployed to the ethereum testrpc blockchain.
+                                The components directory contains helper functions that are attached to each template and execute code in the template. The views folder is for the HTML that the browser will read.
                             </p>
-                            <code>
-                                var deployed = Introduction.new({<br>
-                                  from: web3.eth.accounts[0],<br>
-                                  data: compiled.contracts.Introduction.bytecode,<br>
-                                  gas: 4700000,<br>
-                                  gasPrice: 5,<br>
-                                }, (error, contract) => { })<br>
-                            </code>
                             <p>
-                                Make a variable of the deployed contract.
+                                In your views folder create a file called accountInfo.html and in your components folder create a file called accountInfo.js, which will contain the helper functions. The code below can be used to create an account name, a public address and a balance of each account in the private ethereum blockchain network.
                             </p>
-                            <code>
-                                web3.eth.getTransacton("[[transaction id]]")
-                            </code>
+                            <img src="assets/img/meteor-wallet/acct-balance.jpg" class="img-responsive" alt="Meteor code for Ethereum accounts">
                             <p>
-                                In your testrpc terminal window you will see that the contract has gone through. A contract and a transaction address will be posted. Find transaction info with the above command.
+                                If a helper function returns an array of data, we can loop through the data from within a template by using the 'each' syntax, as shown below. Account name, address and the balance of each account will be generated as an array of data.
                             </p>
-                            <code>
-                                deployed.address
-                            </code>
+                            <img src="assets/img/meteor-wallet/balance-tplt.jpg" class="img-responsive" alt="Loop through Ethereum accounts">
                             <p>
-                                View the address of the deployed contract.
+                            Next, create a file called route.js inside your lib folder, which is used to navigate throughout our application. The code for route.js is shown below.
                             </p>
-                            <code>
-                                deployed.address
-                            </code>
+                            <img src="assets/img/meteor-wallet/router.jpg" class="img-responsive" alt="Navigate through Ethereum wallet">
+                            <p>Main.html is the default page that is loaded at the beginning. It will contain all the HTML tags and will provide functionality to loop to all the other pages. The helper command {{> yield}} works as a placeholder for dashboard content which will be injected when the route in run.</p>
+                            <img src="assets/img/meteor-wallet/main-html.jpg" class="img-responsive" alt="Ethereum wallet main page">
                             <p>
-                                Call a function on the contract. In this case, we will call the displayMessage function and the message we input into the solidity.
+                                Now we can start our application from the terminal from within the project directory by running the command "meteor", as shown below. Meteor will run the application at localhost:3000. 
                             </p>
+                            <img src="assets/img/meteor-wallet/start.jpg" class="img-responsive" alt="Start Meteor Ethereum wallet">
+                            <p>
+                                Make sure that from a different terminal window, you run testRPC. You can do this by running the command testrpc from the same project directory and you will see a list of available Ethereum accounts.
+                            </p>
+                            <img src="assets/img/meteor-wallet/testrpc.jpg" class="img-responsive" alt="Testrpc Ethereum blockchain">
+                            <p>
+                                When you open the web browser and copy and navigate to localhost:3000 you should see the following output.
+                            </p>
+                            <img src="assets/img/meteor-wallet/frontend.jpg" class="img-responsive" alt="Frontend of Ethereum wallet">
                             <p>
                                 <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
                             </p>
 
-                        </div> <!-- End row -->
-                    </div> <!-- End page content -->
+						</div> <!-- End row -->
+					</div> <!-- End page content -->
 
-                    <!-- Begin Sidebar -->
-                    <div class="col-xs-12 col-md-3 col-md-pull-9">
-                        <aside class="sidebar-nav">
-                            <h3 class="sidebar-heading">Latest Posts</h3>
-                            <ul>
+					<!-- Begin Sidebar -->
+					<div class="col-xs-12 col-md-3 col-md-pull-9">
+						<aside class="sidebar-nav">
+							<h3 class="sidebar-heading">Latest Posts</h3>
+							<ul>
                                 <li><a href="meteor-wallet.html" target="_blank">How to Use Meteor to Create an Ethereum Wallet</a></li>
                                 <li><a href="intro-embark.html" target="_blank">How to Get Started with the Embark Framework</a></li>
                                 <li><a href="crypto-signature.html" target="_blank">How to Use Go to Create a Crypto Signature</a></li>
@@ -235,13 +182,13 @@
                                 <li><a href="intro-sol-contracts.html" target="_blank">Get started with solidity and ethereum smart contracts</a></li>
                                 <li><a href="bitcoinjs-sign.html" target="_blank">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
                                 <li><a href="bitcoinjs-address.html" target="_blank">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
-                            </ul>
-                        </aside>
-                    </div> <!-- End Sidebar -->
+							</ul>
+						</aside>
+					</div> <!-- End Sidebar -->
 
-                </div> <!-- End row -->
-            </div> <!-- End container -->
-        </section> <!-- End Content section -->
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section> <!-- End Content section -->
 
 
          <section class="cta-form" id="contact" style="background-image: url('http://www.downvids.net/video/bestimages/img-obj-plexus-after-effects-762.jpg')">
@@ -300,7 +247,7 @@
 
         <!-- SCRIPTS 
         ========================================-->
-        <!-- Core Scripts -->
+       <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugin Scripts -->
@@ -323,5 +270,4 @@
     
     </body>
 
-</html>                            
-
+</html>
