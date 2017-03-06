@@ -6,10 +6,10 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A tutorial that goes over how to send a send an ether transaction using Ethereumjs-tx and Web3 ...">
+    <meta name="description" content="This tutorial goes over how to install the Hyperledger Fabric v1.0 on Ubuntu and how to get started using the blockchain framework ...">
     <meta name="author" content="MLG Blockchain">
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal | MLG Blockchain</title>
+    <title>How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -36,20 +36,6 @@
     <!-- Uncomment the color scheme you want to use. -->
     <link href="assets/css/vitality-red.css" rel="stylesheet" type="text/css">
     <link href="assets/css/mlg.css" rel="stylesheet" type="text/css">
-    <!-- <link href="assets/css/vitality-aqua.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-blue.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-green.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-orange.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-pink.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-purple.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-tan.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-turquoise.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="assets/css/vitality-yellow.css" rel="stylesheet" type="text/css"> -->
-    <!-- IE8 support for HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 </head>
     <body id="page-top">
         
@@ -101,101 +87,170 @@
 					<div class="col-xs-12 col-md-9 col-md-push-3">
 					
 						<div class="content-box">
-					    	<p class="blog-date"><span>26</span><br>Dec<br>2016</p>
-					        <img src="https://avatars1.githubusercontent.com/u/16297473?v=3&s=400" alt="Sign a digital transaction on the Bitcoin Blockchain with Bitcoinjs">
+					    	<p class="blog-date"><span>6</span><br>Mar<br>2017</p>
+					        <img src="https://i.ytimg.com/vi/EKa5Gh9whgU/maxresdefault.jpg" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
 					    </div>
 					    <div class="post-info">
-					       	<span>Michael Gord  |  bitcoin,  blockchain,  sign transaction, nodejs, development</span>
+					       	<span>Akarsh Agarwal |  hyperledger,  blockchain,  docker, golang, blockchain development, hyperledger development, docker-engine</span>
 					    </div>
 
-					    <h2 class="section-title">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</h2>
+					    <h2 class="section-title">How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</h2>
 					    <div class="divider-light"></div>
 
 					    <div class="page-content">
-					    	<p>You must have node and npm downloaded on your computer. After this tutorial you should have sent an ethereum transaction with test-ether on testrpc.</p>
-                            <code>npm install web3 ethereumjs-tx ethereumjs-util </code>
-                             <p>Download web3, ethereumjs-tx and ethereumjs-util from your terminal.</p>
-                            <code>
-                                node
-                            </code>
-                            <p> Go to your node console.</p>
-                            <code>
-                                var Web3 = require("web3")
-                            </code>
+					    	<p>There is an entire library of Blockchain APIs which you can select according to the needs that suffice your application. Some libraries are open-sourced and some are private. For examples, <a href="https://www.hyperledger.org/" target="_blank">IBM’s Hyperledger Fabric Project</a>, <a href="https://www.ethereum.org/" target="_blank">Ethereum</a>, <a href="https://www.openchain.org/" target="_blank">OpenChain</a> are few of the open sourced models which are popular in the market today.</a> </p>
+                            <p>
+                            This tutorial is to help you setup your development environment for a blockchain application using the IBM-Hyperledger Fabric API.
+                            </p>
+                            <p>
+                            In this tutorial, we will be setting Hyperledger Fabric v1.0 on Ubuntu 16.04 on a localhost server. This tutorial can be applied to Ubuntu 14.04 too, but would involve certain changes to the commands due to the difference in the OS.
+                            </p>
+                            <p>
+                                This tutorial is broken into 2 parts so that it is easier for you to understand and follow through the steps without making the article too long. The 1st part focuses on installing the prerequisites for the API and the 2nd part will focus on installing and running of Hyperledger API itself.
+                            </p>
+                            <h3>
+                                Prerequesites
+                            </h3>
+                            <ul>
+                                <li>
+                                Go Language v1.8.x
+                                </li>
+                                <li>
+                                Docker Engine
+                                </li>
+                            </ul>
+                            <h3>
+                                Go Language v1.8.x
+                            </h3>
+                            <p>
+                                Go Language has been developed by Google and the IBM Hyperledger Fabric API uses Go for compiling and building. Go integrates the properties of C++ and Python into one language. It has fast runtime because it is a compiled language, similar to C++, as compared to an interpreted language like Python. It is also written in a similar way to Python so it benefits from have having a simpler syntax to C++. So, we get the faster speed and easiness of syntax in one package, Go.
+                            </p>
+                            <p>
+                                To install the Go Language, we need to download the package from the official <a href="https://golang.org/dl/" target="_blank">Go Download Page</a>. To follow along with this tutorial, select the option in the Linux section, as described in the screenshot below (xx.tar.gz package).
+                            </p>
+                            <img src="assets/img/hyperledger-pre/download-go.jpg" class="img-responsive" alt="Download Golang">
                             <p> 
-                                Require web3.                    </p>
-                                                                                    <code>
-                    var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
-                            </code>
-                            <p>
-                            Get web3 Instance in Node Console. 8545 is the default port to connect to.
+                                Once the package is downloaded, we need to extract it and move it to /usr/local/ directory, so that our application can access it and more importantly, the Go files are situated at a safe place, where you don’t accidently delete them.
                             </p>
-                             <code>
-                            testrpc    
-                            </code>
                             <p>
-                        In a new terminal window run testrpc. 
+                                To extract the Go package, use the command below.
                             </p>
-                            <code>
-                            web3.eth.getBalance(web3.eth.accounts[0])    
-                            </code>
+                            <code> sudo mv go /usr/local/ </code></br></br>
+                            <img src="assets/img/hyperledger-pre/usr-local.jpg" class="img-responsive" alt="Extract Golang to proper folder">
                             <p>
-                        Check balance of account[0] in Wei. 
+                            When you see the directory (/usr/local/), you should now see that there is a new folder named “go”, in your directory. This shows that the go files have been correctly placed in the desired location. Here is a screenshot for you to verify and check whether you have something similar to this or not.
+                            </p>
+                            <p>
+                                Now that we have the Go files in the correct place, we want to configure the terminal to locate the files when we want to execute any Go command. We need to include it into our environment variables. For this, we need to edit the ~/.bashrc file of the system, which keeps track of the environment variables of your system. To edit that file, use the following command.
+                            </p>
+                            <code> sudo nano ~/.bashrc </code></br></br>
+                            <p>
+                                Include the following lines at the end of the file
                             </p>
                             <code>
-                            web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0]), 'ether')
-                            </code>
+                                #GO VARIABLES</br>
+                                export GOROOT=/usr/local/go</br>
+                                export PATH=$PATH:$GOROOT/bin</br>
+                                #END GO VARIABLES</br>
+                            </code></br>
                             <p>
-                            Check balance of account[0] in Ether. 
-                            </p>
-                            <code>
-                        acct1 = web3.eth.accounts[0]<br>
-                        acct2 = web3.eth.accounts[1]<br>
-                        acct3 = web3.eth.accounts[2]
-                            </code>
+                            The PATH variable is the environment Path variable. The GOROOT variable defines where are your Go files situated in the system. 
+                        </p>
+                        <p>
+                            To reload the environment variables, we use the following command. 
+                        </p>
+                            <code> source ~/.bashrc </code></br></br>
                             <p>
-                        Create account helper methods.
+                            This command gives no output, but just simply reloads all the environment variable in background. Now, we can check the installation of Go in our terminal by typing: 
                             </p>
-                            <code>
-                            var balance = (acct) => { return web3.fromWei(web3.eth.getBalance(acct), 'ether').toNumber()}
-                            </code>
+                            <code> go </code></br></br>
                             <p>
-                            Create balance method. 
-                            </p>
-                            <code>
-                            balance(acct1)
-                            </code>
+                            If the installation was successful, you should see the following output.
+                        </p>
+                            <img src="assets/img/hyperledger-pre/go-installed.jpg" class="img-responsive" alt="Go installed correctly">
                             <p>
-                            Query balance of account[0] to make sure its working. 
+                            If you see any other output except this, maybe you might have done some mistake. Please go through the steps again above.
                             </p>
-                            <code>
-                            web3.eth.sendTransaction({from: acct1, to:acct2, value: web3.toWei(1, 'ether'), gasLimit: 21000, gasPrice: 20000000000})
-                            </code>
                             <p>
-                            Send 1 test ether from acct1 to acct2. 
+                            Now we have installed the Go language on the host machine and we are halfway through setup of prerequisites for the Hyperledger API, Congrats!.
                             </p>
-                             <code>
-                            var txHash = _
-                            </code>
+                            <h3>
+                                Docker Engine
+                            </h3>
                             <p>
-                            Create variable for txHash output from above. 
+                                Docker is the container where you will be running your instances which makes sure that the blockchain application you run is available. Consider docker as a Virtual Machine Box, which runs images which have specific functionalities, just like Windows and Ubuntu, however each Docker image is smaller in size as compared to an Operating Systems. Each docker images will run a service associated with the Hyperledger network in your localhost. We shall cover two such services absolutely required by the Blockchain Network to run your application, in the next part of the tutorial. We will see how to install docker in this part.
                             </p>
-                             <code>
-                            balance(acct2)
-                            balance(acct1)
-                            </code>
                             <p>
-                            Query balance of acct1 and acct1 to make sure the transaction went through. 
+                                We need to install docker on your system to be able to understand the beauty that lies within. So, let’s get started!
                             </p>
-                             <code>
-                            web3.eth.getTransaction(txHash)
-                            </code>
                             <p>
-                            Check transaction data from txHash. 
+                                To install docker through CLI or Terminal, we will need to install two packages: Docker-engine and Docker-compose. Docker-engine is like the base package which makes all the necessary files available for the docker container to run properly. Docker-compose configures your docker images according to the specific configuration you provide, which will enable the Blockchain service.
                             </p>
+                            <p>
+                                To install docker-engine, enter the following command in the terminal.
+                            </p>
+                            <code> sudo apt-get install -y docker-engine </code></br>
+                            <p>
+                                Your output will differ from me as I have the Docker-Engine already installed on my system. But there is no error in the console, which ensures that it has been installed correctly. After you run the above command, docker should be installed on your system.
+                            </p>
+                            <img src="assets/img/hyperledger-pre/docker-install.jpg" class="img-responsive" alt="Install docker">
+
+                            <p>
+                            Now, we need to enable the docker service at startup of the system. We write the following commands:
+                            </p>
+                            <p>
+                            To start the docker service:
+                            </p>
+                            <code> sudo service docker start</code></br></br>
+                            <p>
+                            If all goes well, there will be no output. If you get an error, please consider re-installing the docker-engine again.
+                            </p>
+
+                            <p>
+                                To enable the docker to start at startup of the system, we use the following command:
+                            </p>
+                            <code> sudo systemctl enable docker </code></br></br>
+                            
+                            <img src="assets/img/hyperledger-pre/docker-enable.jpg" class="img-responsive" alt="Enable docker">
+
+                            <p>
+                                If all goes well, your output should match with the screenshot displayed above. Now, each time you reboot your system, your docker container will be reloaded automatically.
+                            </p>
+
+                            <p>
+                            To check if the docker service is running, just type: 
+                        </p>
+                            <code> docker </code></br></br>
+                            <p>
+                            And you should get a similar output as below.
+                        </p>
+
+                            <img src="assets/img/hyperledger-pre/docker-run.jpg" class="img-responsive" alt="Run docker">
+
+                            <p>If you get anything else, please consider re-installing the docker-engine.</p>
+
+                            <p>Now, the second part of docker-engine is the docker-compose function, which is needed to configure the docker images you are calling.</p>
+                            
+                            <p>For that, we use python’s pip. You can use the following command to install docker-compose:</p>
+
+                            <code> sudo pip install docker-compose </code></br></br>
+
+                            <img src="assets/img/hyperledger-pre/docker-compose.jpg" class="img-responsive" alt="Install docker-compose">
+                            
+                            <p>The installation should complete without any red text at the bottom. This makes sure that we have our docker-engine and docker-compose properly installed in our system. But to work with the docker images, you need to add your user to the docker group, which was created during installation of docker-engine as a part of setup.</p>
+
+                            <code> sudo usermod -aG docker $(whoami) </code></br></br>
+
+                            <p>This command will provide no output. If any output is displayed, maybe there is something wrong with the command you just typed into your console. Please check if you have written the same line of code. After successfully completing, this adds your current logged in user to the docker group, which will enable you to run docker images.</p>
+
+                            <p>So, at this point, we have setup our two essential packages, Go Language and Docker-Engine, which are required to run the Hyperledger Fabric API. The setup and installation part of Hyperledger Fabric API will be presented in the next part of the tutorial.</p>
+
+                            <p>If you have any doubts or errors, please email hello@mlgblockchain.com and we shall get back to you as soon as possible, with a possible solution.</p>
+                            
                             <p>
                                 <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
                             </p>
+
 						</div> <!-- End row -->
 					</div> <!-- End page content -->
 
@@ -281,7 +336,7 @@
 
         <!-- SCRIPTS 
         ========================================-->
-        <!-- Core Scripts -->
+       <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugin Scripts -->
@@ -300,6 +355,7 @@
     <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
     <!-- Vitality Theme Scripts -->
     <script src="assets/js/vitality.js"></script>
+
     
     </body>
 
