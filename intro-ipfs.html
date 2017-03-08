@@ -6,10 +6,10 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A tutorial that goes over how to get started with smart contracts on Embark ...">
+    <meta name="description" content="A tutorial that walks through how to start using IPFS and store files in a decentralized database ...">
     <meta name="author" content="MLG Blockchain">
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>How to Get Started with the Embark Framework | MLG Blockchain</title>
+    <title>How to Get Started with IPFS Decentralized Storage | MLG Blockchain</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -101,65 +101,150 @@
                     <div class="col-xs-12 col-md-9 col-md-push-3">
                     
                         <div class="content-box">
-                            <p class="blog-date"><span>12</span><br>Feb<br>2017</p>
-                            <img src="assets/img/blog/intro-embark.jpg" alt="How to Get Started using Smart Contracts with Embark">
+                            <p class="blog-date"><span>8</span><br>Mar<br>2017</p>
+                            <img src="assets/img/ipfs/ipfs-img.jpg" alt="How to Get Started with IPFS Decentralized Storage">
                         </div>
                         <div class="post-info">
-                            <span>Michael Gord  |  embark, ethereum,  blockchain, solidity, smart contracts, blockchain development</span>
+                            <span>Michael Gord  |  ipfs, ethereum,  blockchain, decentralized storage, database development</span>
                         </div>
 
-                        <h2 class="section-title">How to Get Started with the Embark Framework</h2>
+                        <h2 class="section-title">How to Get Started with IPFS Decentralized Storage</h2>
                         <div class="divider-light"></div>
 
                         <div class="page-content">
-                             <p>This tutorial will walk through how to use <a href="https://media.readthedocs.org/pdf/embark/latest/embark.pdf" target="_blank">Embark</a>, which is a framework to help developers easily build and deploy serverless decentralized applications. A Decentralized Application (Dapp) is a serverless application that uses decentralized technologies, such as blockchain and smart contract technology, and has no single point of failure. Embark is currently integrated with the Ethereum EVM blockchain, IPFS decentralized storage and decentralized communication platforms called Whisper and Orbit.</p>
+                             <p>InterPlanetary File System (IPFS) is a new protocol, released as an open source project in 2014, that took advantage of the blockchain protocol and network infrastructure to create a permanent and decentralized method of storing and sharing files securely. IPFS is a single swarm of nodes, exchanging data in a way that is similar to a single Git repository. 
+                            </p>
                              <p>
-                                Embark is a tool to automatically deploy smart contracts to the Ethereum EVM blockchain and make them easily accessible with traditional Javascript code. Embark handles the contract migration if there are multiple contracts, automatically redeploys contracts as needed and watched for changes. It supports test driven development of contracts with Javascript and allows developers to easily manage their contracts on different blockchains, such as a testnet, a private net and the live network.
+                                IPFS uses a content-addressable distribution protocol with a content-address for each document that is “hyperlinked” to the data. Addresses in IPFS are directly linked to an exact and unalterable block of content. They are also required to view the content, which will be demonstrated in this tutorial. A new content-address is created if the content has been changed, which guarantees that no tampering of data occurs, and is also demonstrated in this tutorial.
                             </p>
                             <p>
-                                You can use any traditional web development language with Embark including Angular, React, Meteor, etc. You are also able to use any build pipeline you want, including grunt or gulp.
+                                IPFS is currently implemented in Go, with a Javascript implementation that exists and a Python implementation in progress. For the purposes of this walkthrough, we assume that you already have homebrew installed.
                             </p>
                             <p>
-                                To begin you need to install the Embark package manager with NPM.
+                                First we need to install the prerequisites. This tutorial assumes that you have already downloaded HomeBrew. If you haven't you can download it at <a href="https://brew.sh/" target="_blank">this link</a>: https://brew.sh/. Use brew to install
+                            </p>
+                            <p>
+                                <ul>
+                                    <li>brew install git hg</li>
+                                    <li>brew install Caskroom/cask/osxfuse</li>
+                                    <li>You must also have golang downloaded</li>
+                                </ul>
+                            </p>
+                            <p>
+                                Next download IPFS <a href="https://ipfs.io/docs/install/" target="_blank">from here</a> -> https://ipfs.io/docs/install/
+                            </p>
+                            <p>In the go-ipfs folder that is created copy and paste the file called IPFS to your /bin folder. Confirm that you have correctly placed IPFS by running the following commands from your terminal. Your terminal should return the same location for IPFS. 
                             </p>
                             <code>
-                                $ npm -g install embark
-                            </code>
-                            <p>
-                                If you would like to deploy your smart contract to the Ethereum test network rather than a real ethereum node use this command.
+                                $ which IPFS
+                            </code><br/><br/>
+                            <img src="assets/img/ipfs/which-ipfs.jpg" class="img-responsive" alt="Create a new application with Embark">
+                            <p>You should also be able check the version of IPFS you are using with the following command. Make sure you have ipfs version 0.4.5 to follow along with this tutorial.
                             </p>
                             <code>
-                                $ npm -g install ethereumjs-testrpc
-                            </code>
-                            <p>You can create a sample working DApp with one command with many dependencies downloaded automatically such as web3, cryptojs, bignumber, lodash, grunt, mocha, yargs, etc. When you create a new embark app it should complete by returning “init complete” and by confirming that the embark app is ready.
+                                $ ipfs version
+                            </code><br/><br/>
+                            <img src="assets/img/ipfs/ipfs-version.jpg" class="img-responsive" alt="Create a new blockchain instance with Embark">
+                            <p>
+                                You can also check the list of commands available with IPFS using help. Many of these we will go over in this tutorial.
                             </p>
                             <code>
-                                $ embark new demo
-                            </code>
-                            <img src="assets/img/embark-new-demo.jpg" class="img-responsive" alt="Create a new application with Embark">
-                            <p>You can now change directory into the embark_demo and connect your demo to an ethereum node with this command. After you run the command embark should automatically run geth, initialize a genesis block, return the address of the genesis block, give you an IPC and https endpoints, and start to download the DAG. Downloading the DAG will take a couple minutes.
+                                $ ipfs help
+                            </code><br/><br/>
+                            <img src="assets/img/ipfs/ipfs-help.jpg" class="img-responsive" alt="Your Embark account has been funded">
+                            <p>
+                                Now change directory in your terminal to the folder you want to create an IPFS instance in. Initialize IPFS with <code>ipfs init</code>. This creates a file structure with IPFS and a peer identity on the global network. At this point however, you are working locally and are not exposed to the global network. 
+                            </p>
+                            <img src="assets/img/ipfs/ipfs-init.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+                            <p>
+                                This should return a command to your terminal that tells you how to get started. Use that command to ensure everything is working as expected. The code to insert might be different for you. 
                             </p>
                             <code>
-                                $ embark blockchain
-                            </code>
-                            <img src="assets/img/embark-blockchain.jpg" class="img-responsive" alt="Create a new blockchain instance with Embark">
+                                ipfs cat /ipfs/QmVLDAhCY3X9P2uRudKAryuQFPM5zqA3Yij1dY8FpGbL7T/readme
+                            </code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-cat.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
                             <p>
-                                Once the DAG is fully generated the blockchain will begin to mine and a message will be returned to confirm that your account has been funded.
+                                This file is also stored on your computer and was put there when you initialized IPFS. A .ipfs folder was also created on your computer with a folder for keys, a folder for to store data, a folder for block information, and a text file for the version and configuratin. This folder needs to be in a place with alot of space because it is where files you store on IPFS are going to be saved. The folder structure is displayed in the picture below.
                             </p>
-                            <img src="assets/img/embark-account-funded.jpg" class="img-responsive" alt="Your Embark account has been funded">
+
+                            <img src="assets/img/ipfs/ipfs-folder.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
                             <p>
-                                Next we can run our app locally by running this command in a new terminal window from the embark demo dapp file directory. This will run our embark dapp in the same way as a traditional application running on localhost and we should be able to view our dapp locally. When we do, a window shows up to show the contracts that are deployed and a log of events. 
+                                You can check the size of the folder from your terminal with the following command
                             </p>
-                            <code>
-                                $ embark run
-                            </code>
-                            <img src="assets/img/embark-run.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <code>du -sh ~/.ipfs</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-folder-size.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
                             <p>
-                                Your fully functional dapp should now be live on whatever port is specified in your code (localhost:8545 is default). If you look at your folder directory you can see that you have an app folder for your dapp files, including contracts for your smart contract files, css for your styles, js for your javascript files and an index.html for your layout. The config folder is for custom configuration of your blockchain, contracts, etc. The blockchain.json is to configure your blockchain environment and the contracts.json is to configure your smart contracts. The dist folder is for your production code. 
+                                Now if you want to add a file to ipfs you can do that with the command ipfs add fileName, which will return a hash. It is called a multihash which is its IPFS content address. Its address is directly based on its content. If you create the same file it will have the exact same hash, as it is the exact same file. 
                             </p>
+
+                            <img src="assets/img/ipfs/ipfs-add.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
                             <p>
-                                In the next Embark tutorial we will walk through how to handle smart contracts using Solidity and Embark. To get a feel for how smart contracts work check out our <a href="intro-sol-contracts.html" target="_blank">Introduction to Solidity Smart Contracts</a> tutorial and our <a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract using Solidity</a> tutorial.
+                                We use the multihash/content address to read files in IPFS. In the example below you insert in the hash that was returned to you, based on the content you have in your file  
                             </p>
+
+                            <code>ipfs cash multihash</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-cat-multihash.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>
+                                You cant use the filename to find the content, you need to use the content address. If we make a change to the file, it will have a new content address, so you know that the content stored to your content address has not been tampered with. As you can see, in the example below, the content address changed after the content of the file changed.
+                            </p>
+
+                            <img src="assets/img/ipfs/content-address.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>The new content address will bring up the new content. If you change the content back to the initial content, it will change the content address back to the original address.
+                            </p>
+
+                            <img src="assets/img/ipfs/changed-address.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>Right now, this is all being done locally on your computer. If you want to add your files to the IPFS network you must first start the IPFS daemon. Connecting to the IPFS daemon means that your file will be functioning on the live IPFS network. You should see a messaged confirmed when it is completed saying that the daemon is ready.
+                            </p>
+
+                            <code>ipfs daemon</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-daemon.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>From the live network we can now send and receive access to files by sharing the files unique content address.
+                            </p>
+
+                            <p>To see a list of the files that have been saved (note that previous hashes are listed)</p>
+
+                            <code>ipfs ref local</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-ref-local.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>To save a file to IPFS and make it so that it is not removable by anyone you need to pin it. To see the current pinned files run (notice that the current hashes are not pinned).
+                            </p>
+
+                            <code>ipfs pin ls</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-pin-ls.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>You can pin a file with the pin command and the content address
+                            </p>
+
+                            <code>ipfs pin add contentAddressHash</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-pin-add.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
+
+                            <p>You can remove a previously pinned file with the remove command.
+                            </p>
+
+                            <code>ipfs pin rm contentAddressHash</code><br/><br/>
+
+
+                            <p>You can remove files from IPFS storage with the garbage collector command.
+                            </p>
+
+                            <code>ipfs repo gc</code><br/><br/>
+
+                            <img src="assets/img/ipfs/ipfs-repo-gc.jpg" class="img-responsive" alt="Run your Embark application to see event logs">
                            
                             <p>
                                 <a href="index.html">MLG Blockchain</a> is a distributed blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
