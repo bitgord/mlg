@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A tutorial that goes over how to initiate and interact with a private blockahin using Eris and ...">
+    <meta name="description" content="Expert blockchain consulting and development firm based in Toronto. We have expertise with cutting edge technologies such as Bitcoin, Ethereum, Hyperledger, Solidity ...">
     <meta name="author" content="MLG Blockchain">
+    <!-- for Facebook -->
+    <meta property="og:title" content="MLG Blockchain"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://scontent.fyzd1-1.fna.fbcdn.net/v/t31.0-8/16113461_1203468529740802_8298128364201048788_o.jpg?oh=083f3a5ded0d20ca003f040dc24fd27c&oe=5959F050" />
+    <meta property="og:image:width" content="960"/>
+    <meta property="og:image:height" content="590"/>
+    <meta property="og:url" content="https://mlgblockchain.com/">
+    <meta property="og:description" content="Expert blockchain consulting and development firm based in Toronto. We have expertise with cutting edge technologies such as Bitcoin, Ethereum, Hyperledger, Solidity ..." />
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>How to Setup a Private Blockchain using Eris | MLG Blockchain</title>
+    <title>MLG Blockchain - Expert Blockchain Consulting and Development</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -47,21 +53,21 @@
     <!-- <link href="assets/css/vitality-yellow.css" rel="stylesheet" type="text/css"> -->
     <!-- IE8 support for HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="httpss://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="httpss://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-    <body id="page-top">
-        
-        <!-- Start: Header Area 
-        ================================-->
-        <header class="header-background header header-2" id="header" data-stellar-background-ratio="0.5"> 
-            <div class="fix overlay-color">
+<!-- Alternate Body Classes: .modern and .vintage -->
 
-                <!-- Start: Navbar Area  -->
-                <div class="header-navbar" id="header-navbar">            
-                    <!-- Navbar Option -->
-                    <nav class="navbar navbar-inverse navbar-expanded" id="myNavbar" style="padding:10px 0px;">
+<body id="page-top">
+
+    <!-- Navigation -->
+    <!-- Note: navbar-default and navbar-inverse are both supported with this theme. -->
+          
+        <!-- Start: Navbar Area  -->
+            <div class="header-navbar" id="header-navbar">            
+                <!-- Navbar Option -->
+                <nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded" id="myNavbar" style="padding:5px 0px; background-color: white;">
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
@@ -106,94 +112,30 @@
                     </div>
                     <!-- /.container -->
                 </nav>
+            </div>
+            <!-- End: Navbar Area  -->
+
+    <section id="about">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-lg-12 wow fadeIn">
+                    <br><br>
+                    <h1>Announcements</h1>
+                    <h4>Be the first to hear about the newest advancements in blockchain technology!</h4>
+                    <hr color="black">
                 </div>
-                <!-- End: Navbar Area  -->
-  
-		<!-- Begin Content -->
-		<section class="post-content">
-			<div class="container">
-				<div class="row">
-                    <br><br><br>
-					<!-- Begin page content -->
-					<div class="col-xs-12 col-md-9 col-md-push-3">
-					
-						<div class="content-box">
-					    	<p class="blog-date"><span>20</span><br>Jan<br>2017</p>
-					        <img src="https://appliedblockchain.com/wp-content/uploads/2015/12/Blokchain-Predictions-2016.jpg" alt="How to Setup a Private Blockchain using Eris">
-					    </div>
-					    <div class="post-info">
-					       	<span>Duncan Brown  |  ethereum,  blockchain,  eris, private blockchain, blockchain development</span>
-					    </div>
-
-					    <h2 class="post-title">How to Setup a Private Blockchain using Eris</h2>
-					    <div class="divider-light"></div>
-
-					    <div class="page-content">
-
-                            <p>Get tools <a href="https://www.docker.com/" target="_blank">docker</a> and <a href="https://golang.org/" target="_blank">Golang</a>. You can download both by clicking these links. </p>
-                            <p>Docker: www.docker.com<br />Golang: www.golang.org</p>
-
-                            <p>Read more on the <a href="https://docs.erisindustries.com/tutorials/getting-started/">getting started docs on the Eris Industries website</a> and see docs for <a href="https://docs.erisindustries.com/tutorials/getting-started/">installation setup</a>.</p>
-                            <p>Docs for contract deployment can be found below.</p>
-                            <p>Getting Started: https://docs.erisindustries.com/tutorials/getting-started/<br />Contract Deployment: https://docs.erisindustries.com/tutorials/getting-started/<br />
-                                Advanced Contract Deployment: https://docs.erisindustries.com/tutorials/advanced/contracts-deploying/</p>
-                            
-                            <p>You can interact with your local Eris blockchain by deploying a node.js app.js.</p>
-
-                            <p>To read the Eris docs on how interact with a smart contract go here: https://docs.erisindustries.com/tutorials/contracts-interacting/</p>
-
-                            <p>Once you have setup an app.js file to interact with the contract you set up a REST API with code given from an Eris curl command. The port is not defined though, which complicates things when you are asked to curl PUT data on it. An example is with the following command.</p>
-
-                            <code>$ curl --request PUT --data 1234 $host:8082</code>
-
-                            <p> A simple fix to this is to hard code the port number, for example port 8083, into app.js at the very bottom of the script</p>
-
-                            <code>server.listen(8082, function () {<br />
-        console.log('Listening for https requests on port ' + 8082 + '.')</code>
-
-                            <p>This step might need to be changed in production but it a quick fix for learning and testing. The last step is to install the dependencies.</p>
-
-                            <code>npm install</code>
-						</div> <!-- End row -->
-					</div> <!-- End page content -->
-
-					<!-- Begin Sidebar -->
-					<div class="col-xs-12 col-md-3 col-md-pull-9">
-						<aside class="sidebar-nav">
-							<h3 class="sidebar-heading">Latest Posts</h3>
-							<ul>
-                                <li><a href="intro-ipfs.html" target="_blank">How to Get Started with IPFS Decentralized Storage</a></li>
-                                <li><a href="hyperledger-pre.html" target="_blank">How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</a></li>
-                                <li><a href="intro-blockchain.html" target="_blank">A Simple Introduction to Understand the Blockchain</a></li>
-                                <li><a href="meteor-wallet.html" target="_blank">How to Use Meteor to Create an Ethereum Wallet</a></li>
-                                <li><a href="intro-embark.html" target="_blank">How to Get Started with the Embark Framework</a></li>
-                                <li><a href="crypto-signature.html" target="_blank">How to Use Go to Create a Crypto Signature</a></li>
-                                <li><a href="setup-bitcoind.html" target="_blank">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
-                                <li><a href="eris-chain.html" target="_blank">How to Setup a Private Blockchain with Eris</a></li>
-                                <li><a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract with Solidity</a></li>
-                                <li><a href="ethereum-private-network.html" target="_blank">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
-                                <li><a href="intro-sol-contracts.html" target="_blank">Get started with solidity and ethereum smart contracts</a></li>
-                                <li><a href="bitcoinjs-sign.html" target="_blank">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
-                                <li><a href="bitcoinjs-address.html" target="_blank">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
-							</ul>
-						</aside>
-					</div> <!-- End Sidebar -->
-
-				</div> <!-- End row -->
-			</div> <!-- End container -->
-		</section> <!-- End Content section -->
-
-
-         <section class="cta-form" id="contact" style="background-image: url('assets/img/homepage/plexus.jpg')">
+            </div>
+        </div>
+    </section>
+ 
+    <section class="cta-form" id="contact" style="background-image: url('assets/img/homepage/plexus.jpg')">
         <div class="container text-center">
-            <h4 style="color:white">Be the first to hear about the newest advancements in blockchain technology!</h3>
-            <hr class>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- MailChimp Signup Form -->
                     <div id="mc_embed_signup">
                         <!-- Replace the form action in the line below with your MailChimp embed action! For more informatin on how to do this please visit the Docs! -->
-                        <form role="form" action="//startbootstrap.us3.list-manage.com/subscribe/post?u=531af730d8629808bd96cf489&amp;id=afb284632f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                        <form role="form" action="//mlgblockchain.us15.list-manage.com/subscribe/post?u=aed601a0f8af2bb3c70ffe3ac&amp;id=1b4e498474" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
                             <div class="input-group input-group-lg">
                                 <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email address...">
                                 <span class="input-group-btn">
@@ -211,36 +153,26 @@
             </div>
         </div>
     </section>
-    <footer id="footer" class="footer">
-        <div class="container text-center">
-            <div class="row" style="color:black">
-                <div class="col-md-4 contact-details">
-                    <h4><i class="fa fa-phone"></i> Call</h4>
-                    <p>647-377-3489</p>
-                </div>
-                <div class="col-md-4 contact-details">
-                    <h4><i class="fa fa-map-marker"></i> Visit</h4>
-                    <p>Toronto, Canada</p>
-                </div>
-                <div class="col-md-4 contact-details">
-                    <h4><i class="fa fa-envelope"></i> Email</h4>
-                    <p style="color:black">hello@mlgblockchain.com</p>
-                </div>
-            </div>
-    
-            <div class="row copyright">
-                <div class="col-lg-12">
-                    <center><a href="index.html"><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></a></center>
-                    <br>
-                    <p class="small" style="color:black">&copy; 2017 MLG Blockchain Consulting</p>
-                </div>
-            </div>
+    <div class="contrainer">
+        <div class="row">
+            <br/><br/>
+            <p class="text-center">Connect on social media</p>
+            <center>
+            <ul class="s-dark list-inline list-unstyled">
+                <li><a href="https://twitter.com/kylekemper"><i class="fa fa-twitter-square"></i></a>
+                </li>
+                <li><a href="https://twitter.com/kylekemper"><i class="fa fa-facebook-square"></i></a>
+                </li>
+                 <li><a href="https://www.linkedin.com/in/kylekemper/"><i class="fa fa-linkedin-square"></i></a>
+                </li>
+            </ul>
+            </center>
         </div>
-    </footer>
-
-        <!-- SCRIPTS 
-        ========================================-->
-        <!-- Core Scripts -->
+    </div>
+   
+    
+   
+    <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Plugin Scripts -->
@@ -259,8 +191,6 @@
     <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
     <!-- Vitality Theme Scripts -->
     <script src="assets/js/vitality.js"></script>
-
-    
-    </body>
+</body>
 
 </html>
