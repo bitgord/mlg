@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="This tutorial is an introduction to the Hyperledger blockchain fabric and is the first in a three part series to walk through how to install all the Hyperledger dependencies and execute ...">
+    <meta name="author" content="MLG Blockchain">
+    <!-- for Sharing -->
+    <meta property="og:title" content="How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2 | MLG Blockchain"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://scontent.fyzd1-1.fna.fbcdn.net/v/t31.0-8/16113461_1203468529740802_8298128364201048788_o.jpg?oh=083f3a5ded0d20ca003f040dc24fd27c&oe=5959F050" />
+    <meta property="og:image:width" content="960"/>
+    <meta property="og:image:height" content="590"/>
+    <meta property="og:url" content="https://mlgblockchain.com/setup-hyperledger-fabric.html">
+    <meta property="og:description" content="This tutorial is the second in a three part series on how to setup the Hyperledger blockchain fabric on ubuntu and execute Deploy, Invoke and Query ..." />
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2 | MLG Blockchain</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Retina.js - Load first for faster HQ mobile images. -->
+    <script src="assets/js/plugins/retina/retina.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Default Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,600,500,700,800,900' rel='stylesheet' type='text/css'>
+    <!-- Modern Style Fonts (Include these is you are using body.modern!) -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Vintage Style Fonts (Include these if you are using body.vintage!) -->
+    <link href='https://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Plugin CSS -->
+    <link href="assets/css/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/owl-carousel/owl.theme.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/owl-carousel/owl.transitions.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/background.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/plugins/animate.css" rel="stylesheet" type="text/css">
+    <!-- Vitality Theme CSS -->
+    <!-- Uncomment the color scheme you want to use. -->
+    <link href="assets/css/vitality-red.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/mlg.css" rel="stylesheet" type="text/css">
+</head>
+    <body id="page-top">
+        
+        <!-- Start: Header Area 
+        ================================-->
+        <header class="header-background header header-2" id="header" data-stellar-background-ratio="0.5"> 
+            <div class="fix overlay-color">
+
+                <!-- Start: Navbar Area  -->
+                <div class="header-navbar" id="header-navbar">            
+                    <!-- Navbar Option -->
+                    <nav class="navbar navbar-inverse navbar-expanded" id="myNavbar" style="padding:10px 0px;">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- TEMPLATE LOGO -->
+                            <a class="navbar-brand" href="index.html"><span><img src="assets/img/logo.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></span></a>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" id="navbar-nav-2">
+                                <li class="section-selector-2"><a class="btn page-scroll" href="index.html">Home</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="about.html">About</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="services.html">Services</a></li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="clients.html">Clients</a></li>
+                                <li class="section-selector-2 dropdown">
+                                    <a class="btn page-scroll dropdown-toggle" data-toggle="dropdown" href="news.html">News
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="press.html">Press</a></li>
+                                      <li><a href="announcements.html">Announcements</a></li>
+                                    </ul>
+                                </li>
+                                <li class="section-selector-2 dropdown">
+                                    <a class="btn page-scroll dropdown-toggle" data-toggle="dropdown" href="learn.html">Learn
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="bitcoin-tutorials.html">Bitcoin</a></li>
+                                      <li><a href="ethereum-tutorials.html">Ethereum</a></li>
+                                      <li><a href="hyperledger-tutorials.html">Hyperledger</a></li>
+                                      <li><a href="eris-tutorials.html">Eris</a></li>
+                                      <li><a href="blockchain-framework-tutorials.html">Other</a></li>
+                                    </ul>
+                                </li>
+                                <li class="section-selector-2"><a class="btn page-scroll" href="contact.html">Contact</a></li> 
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container -->
+                </nav>
+                </div>
+                <!-- End: Navbar Area  -->
+  
+		<!-- Begin Content -->
+		<section class="post-content">
+			<div class="container">
+				<div class="row">
+                    <br><br><br>
+					<!-- Begin page content -->
+					<div class="col-xs-12 col-md-9 col-md-push-3">
+					
+						<div class="content-box">
+					    	<p class="blog-date"><span>6</span><br>Mar<br>2017</p>
+					        <img src="https://i.ytimg.com/vi/EKa5Gh9whgU/maxresdefault.jpg" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
+					    </div>
+					    <div class="post-info">
+					       	<span>Akarsh Agarwal |  hyperledger,  blockchain,  docker, golang, blockchain development, hyperledger development, docker-engine</span>
+					    </div>
+
+					    <h2 class="section-title">How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2</h2>
+					    <div class="divider-light"></div>
+
+					    <div class="page-content">
+					    	<p>The Hyperledger Fabric project by IBM provides an easy plug-n-play interface for the users to attach their custom Certificate Authority(CA) Server. This has been actively made possible in the newer version of Hyperledger Fabric v1.0 as opposed to v0.6. There is support for this functionality in older versions, but they have been made more easily integrated in the newer release.</p>
+                            <p>
+                            This article is about the steps needed to setup your own CA Server and register/enroll new users into your database. The server provides the public/private key pair as a response to enrolling the user into the database. If you need help to <a href="hyperledger-pre.html">configure the requirements to download Hyperledger</a>, check out the <a href="hyperledger-pre.html">first article in this three part tutorial series to <a href="hyperledger-tutorials.html">learn Hyperledger</a>.
+                            </p>
+                            <p>
+                            The fabric-ca project can be downloaded from the official gerrit codebase using the following command. This will download the required files into your directory. The directory structure is important for the fabric-ca to work. The picture below is a sample of where to place the fabric-ca directory:
+                            </p>
+                            <code> git clone https://gerrit.hyperledger.org/r/fabric-ca </code>
+                            <img src="assets/img/hyperledger-2/fabric-ca.jpg" class="img-responsive" alt="Hyperledger Fabric">
+                            <p>
+                                To make the above screenshot more clear, the fabric-ca directory should be placed inside the GOPATH variable of your system. To set the GOPATH locally run the following command:
+                            </p>
+                            <code> export GOPATH=~/Documents/Blockchain </code>
+                            <p>
+                                The directory structure that follows the GOPATH is GOPATH -> src -> github.com -> hyperledger -> fabric-ca. It is recommended that you follow the same directory structure to avoid any errors that might arise during building or compiling the code.
+                            </p>
+                            <p>
+                                Now, as we have downloaded the files into the required location, we need to build the fabric-ca server and add the path to the executable to have the command available across the system in the terminal. To build the fabric-ca server, go to the root directory of fabric-ca, i.e., inside the fabric-ca directory and run the following command and you should see the screenshow below.
+                            </p>
+                            <code> make fabric-ca-server </code>
+                            <img src="assets/img/hyperledger-2/run-fabric-ca.jpg" class="img-responsive" alt="Hyperledger Fabric">
+                            <p> 
+                                When the above command finishes, the output should be similar to the one shown above. It might take from a few seconds to a minute so be patient. To check whether you have the executable or not, list the contents of the directory “bin” and there should be a new file, in a different color, which is the executable.
+                            </p>
+                            <p>
+                                Now, that we have the executable, we need to be able to access it from anywhere in the system. To do this we need to append the directory of fabric-ca to the PATH variable in the .bashrc file. The command to edit the .bashrc file is: 
+                            </p>
+                            <code> sudo nano ~/.bashrc </code></br></br>
+                            <p>
+                                Next, append the following line at the bottom of the file: <code>export PATH=$PATH:~/Documents/Blockchain/src/github.com/hyperledger/fabric-ca/bin</code>
+                            </p>
+                            <p>
+                            Save the file and close it. Now, we need to refresh the variables to be able to access the fabric-ca command from anywhere. The command to do this is:
+                            </p>
+                            <code> source ~/.bashrc </code>
+                            <p>
+                                To check whether the fabric-ca-server command works or not, just type in the following command and you should see the output below returned to your terminal.
+                            </p>
+                            <code> fabric-ca-server </code>
+                            <img src="assets/img/hyperledger-2/terminal.jpg" class="img-responsive" alt="Hyperledger Fabric">
+                            <p>If you see any other output from the one displayed here, maybe there is some error in the installation and you might want to revisit the starting of the tutorial again.
+                            </p>
+                            <p>
+                            Please ensure that, this documentation is the basic installation of the Fabric-CA service. More tweaking and settings can be found under the section of Fabric-CA Setup, at the official documentation of Hyperledger Fabric.
+                            </p>
+
+                            <h3>Fabric-CA Server Setup</h3>
+                            <p>The Fabric-CA Server acts as our custom CA to register and enroll new users, as well as existing users into the database. The server sends the key pair, when trying to enroll an already registered user.</p>
+                            <p>
+                            To get started, we set-up a new directory for our work environment, so as to not disturb the original files. To create a new directory you can name it whatever you like. Here is what I’ve done below:
+                            </p>
+                            <img src="assets/img/hyperledger-2/users.jpg" class="img-responsive" alt="Hyperledger Fabric">
+                            <p>
+                            For our server to save our files to the current directory, we need to set-up a new environment variable. Call this environment variable FABRIC_CA_SERVER_HOME to follow along with the tutorial. Set this variable to the current directory adding the following lines to the .bashrc file at the end of the file: 
+                            </p>
+                            <code>
+                            export FABRIC_CA_HOME=~/Documents/Fabric-CA <br/>
+                            export FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/server
+                            </code>
+                            <p>I assume that you have set your FABRIC_CA_SERVER_HOME as your current directory, for the rest of the Fabric-CA Server Setup.</p>
+
+                            <p>We need some configuration files, but first we need a pair of keys for the server to ensure the client is able to contact the right server. We use the following commands to generate the public/private key pair. Here, ca-cert.pem is the public key and ca-key.pem is the private key.</p>
+
+                            <p>Now that we have our private and public keypair, we run the following command to auto-initialise all the config files and auto-create the keys. In the command, the ‘-b “admin:adminpw” ‘ initialises our bootstrap user for the database. A user which will be used to login the first time we want to start using our system. Now, after you run the command, you shall see the following output:</p>
+                            <code> fabric-ca-server init -b “admin:adminpw” </code>
+                            <img src="assets/img/hyperledger-2/output.jpg" class="img-responsive" alt="Hyperledger Fabric">
+                            <p>
+                                From the above output, you can make out that we have the keys and the configuration files auto-generated for us by the Fabric-CA. Also, we see another file, fabric-ca-server.db. This file stores all the users that are currently registered with the Fabric-CA server. This is by-default a SQLITE3 database, however you are able to configure the fabric-ca-server-config.yaml file to use either a PostGreSQL or a Mysql database instead.
+                            </p>
+                            <p>We have configured all of our files now, but it is important to understand the various fields in the config file before we run our first server. These fields are important and the documentation is given in the config file. The explanation of each field is below.</p>
+
+                            <h3>Config File Variables</h3>
+
+                            <ul>
+                                <li>The “port” field defines on which port to run the server. By-default the port is 7054.</li>
+                                <li>The “debug” field is for logging while working in development environment.</li>
+                                <li>If your server is run on a HTTPS protocol, the “tls” should be enabled, as we are working on localhost, the default value is always “false”.</li>
+                                <li>We define the keys to be used by the server for signing the client keys, in the “certfile” and “keyfile” section. This variable is mainly used, when we know that the CA and the server are two different entities, but here, the server is itself the CA, so we put the server’s keys in the ca’s keys.</li>
+                                <li>Max_enrollments defines how many users can be enrolled using the same password. If is set to 0, it can be infinitely done, but suppose it is set to 1, it will allow a user to enroll only once.</li>
+                                <li>The next section defines the database we are going to use. By-default, Hyperledger Fabric-CA provides support for 3 types of databases, namely, Sqlite, Postgres and Mysql. You can configure any of the three, but default configuration is “sqlite3” for this tutorial. More can be found about configuring the other two, on the <a href="https://hyperledger-fabric.readthedocs.io/en/latest/" target="_blank">documentation of Hyperledger Fabric</a>.</li>
+                                <li>The LDAP section we are going to skip and keep the value to the default as it is out of the scope of this tutorial.</li>
+                                <li>The affiliations section defines the organizations and departments with which your user is going to be associated to classfiy different types of users.</li>
+                                <li>Signing section is used to define what is the time period for the validity of the client’s signed certificates and what are the other usages of server certificate used in the configuration.</li>
+                                <li>“CSR” section is used to create “Certificate Signing Request” required to generate CA certificates, so as to put in the default details.
+                                <li>The last section we have is the “crypto”,  which defines what type of algorithm the server should use and other cryptographic terms. This is also left as it is.</li>
+                            </ul>
+                            <p>
+                                Now, that we have all the files required, our server is ready to be initiated. Use the command below to start your server.
+                            </p>
+
+                            <code>fabric-ca-server start -b “admin:adminpw”</code>
+
+                            <p>If everything goes right, you should see the following output from your terminal.</p>
+                            <img src="assets/img/hyperledger-2/goesright.jpg" class="img-responsive" alt="Hyperledger Fabric">
+
+                            <p>Now, our localhost Fabric-CA Server is up and running. Congrats for achieving this milestone. Next we shall move onto setting up the Fabric-CA Client, to enable it to communicate it with our localhost.</p>
+
+                            <p>If you have any doubts or errors, please email hello@mlgblockchain.com and we shall get back to you as soon as possible, with a possible solution.</p>
+                            
+                            <p>
+                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. See more blockchain development tutorials at <a href="blog.html">www.mlgblockchain.com</a>.
+                            </p>
+
+						</div> <!-- End row -->
+					</div> <!-- End page content -->
+
+					<!-- Begin Sidebar -->
+					<div class="col-xs-12 col-md-3 col-md-pull-9">
+						<aside class="sidebar-nav">
+							<h3 class="sidebar-heading">Latest Posts</h3>
+							<ul>
+                                <li><a href="setup-hyperledger-fabric.html" target="_blank">How to Setup the Hyperledger Fabric on Ubuntu</a></li>
+                                <li><a href="intro-ipfs.html" target="_blank">How to Get Started with IPFS Decentralized Storage</a></li>
+                                <li><a href="hyperledger-pre.html" target="_blank">How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</a></li>
+                                <li><a href="intro-blockchain.html" target="_blank">A Simple Introduction to Understand the Blockchain</a></li>
+                                <li><a href="meteor-wallet.html" target="_blank">How to Use Meteor to Create an Ethereum Wallet</a></li>
+                                <li><a href="intro-embark.html" target="_blank">How to Get Started with the Embark Framework</a></li>
+                                <li><a href="crypto-signature.html" target="_blank">How to Use Go to Create a Crypto Signature</a></li>
+                                <li><a href="setup-bitcoind.html" target="_blank">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
+                                <li><a href="eris-chain.html" target="_blank">How to Setup a Private Blockchain with Eris</a></li>
+                                <li><a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract with Solidity</a></li>
+                                <li><a href="ethereum-private-network.html" target="_blank">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
+                                <li><a href="intro-sol-contracts.html" target="_blank">Get started with solidity and ethereum smart contracts</a></li>
+                                <li><a href="ethereumjs-sign.html" target="_blank">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
+                                <li><a href="bitcoinjs-address.html" target="_blank">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
+							</ul>
+						</aside>
+					</div> <!-- End Sidebar -->
+
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section> <!-- End Content section -->
+
+
+        <section class="cta-form" id="contact" style="background-image: url('assets/img/homepage/plexus.jpg')">
+        <div class="container text-center">
+            <h4 style="color:white">Be the first to hear about the newest advancements in blockchain technology!</h3>
+            <hr class>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- MailChimp Signup Form -->
+                    <div id="mc_embed_signup">
+                        <!-- Replace the form action in the line below with your MailChimp embed action! For more informatin on how to do this please visit the Docs! -->
+                        <form role="form" action="//mlgblockchain.us15.list-manage.com/subscribe/post?u=aed601a0f8af2bb3c70ffe3ac&amp;id=1b4e498474" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                            <div class="input-group input-group-lg">
+                                <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email address...">
+                                <span class="input-group-btn">
+                                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe!</button>
+                                </span>
+                            </div>
+                            <div id="mce-responses">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End MailChimp Signup Form -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer" class="footer">
+        <div class="container text-center">
+            <div class="row" style="color:black">
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-phone"></i> Call</h4>
+                    <p>647-377-3489</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-map-marker"></i> Visit</h4>
+                    <p>Toronto, Canada</p>
+                </div>
+                <div class="col-md-4 contact-details">
+                    <h4><i class="fa fa-envelope"></i> Email</h4>
+                    <p style="color:black">hello@mlgblockchain.com</p>
+                </div>
+            </div>
+    
+            <div class="row copyright">
+                <div class="col-lg-12">
+                    <center><a href="index.html"><img src="assets/img/mlg.png" alt="MLG Blockchain Consulting" class="img-responsive" style="width:100px"></a></center>
+                    <br>
+                    <p class="small" style="color:black">&copy; 2017 MLG Blockchain Consulting</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <!-- SCRIPTS 
+        ========================================-->
+       <!-- Core Scripts -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugin Scripts -->
+    <script src="assets/js/plugins/google-analytics.js"></script>
+    <script src="assets/js/plugins/jquery.easing.min.js"></script>
+    <script src="assets/js/plugins/classie.js"></script>
+    <script src="assets/js/plugins/cbpAnimatedHeader.js"></script>
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/background/core.js"></script>
+    <script src="assets/js/plugins/background/transition.js"></script>
+    <script src="assets/js/plugins/background/background.js"></script>
+    <script src="assets/js/plugins/jquery.mixitup.js"></script>
+    <script src="assets/js/plugins/wow/wow.min.js"></script>
+    <script src="assets/js/contact_me.js"></script>
+    <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
+    <!-- Vitality Theme Scripts -->
+    <script src="assets/js/vitality.js"></script>
+
+    
+    </body>
+
+</html>
