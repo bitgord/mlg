@@ -6,10 +6,10 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="This tutorial is an introduction to the Hyperledger blockchain fabric and is the first in a three part series to walk through how to install all the Hyperledger dependencies and execute ...">
+    <meta name="description" content="This tutorial is the second in a three part series on how to setup the Hyperledger blockchain fabric on ubuntu and execute Deploy, Invoke and Query ...">
     <meta name="author" content="MLG Blockchain">
     <!-- for Sharing -->
-    <meta property="og:title" content="How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2 | MLG Blockchain"/>
+    <meta property="og:title" content="How to Setup the Hyperledger Fabric-ca Server Setup on Ubuntu 16.04 - Part 2 | MLG Blockchain"/>
     <meta property="og:type" content="article" />
     <meta property="og:image" content="https://scontent.fyzd1-1.fna.fbcdn.net/v/t31.0-8/16113461_1203468529740802_8298128364201048788_o.jpg?oh=083f3a5ded0d20ca003f040dc24fd27c&oe=5959F050" />
     <meta property="og:image:width" content="960"/>
@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://mlgblockchain.com/setup-hyperledger-fabric.html">
     <meta property="og:description" content="This tutorial is the second in a three part series on how to setup the Hyperledger blockchain fabric on ubuntu and execute Deploy, Invoke and Query ..." />
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2 | MLG Blockchain</title>
+    <title>How to Setup the Hyperledger Fabric-ca Server Setup on Ubuntu 16.04 - Part 2 | MLG Blockchain</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -114,13 +114,13 @@
 					
 						<div class="content-box">
 					    	<p class="blog-date"><span>29</span><br>Mar<br>2017</p>
-					        <img src="assets/img/blog/hyperledger.jpg" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
+					        <img src="assets/img/blog/hyperledger.png" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
 					    </div>
 					    <div class="post-info">
 					       	<span>Akarsh Agarwal |  hyperledger,  blockchain, docker, golang, blockchain development, hyperledger development, docker-engine</span>
 					    </div>
 
-					    <h2 class="section-title">How to Setup the Hyperledger Fabric v1.0 on Ubuntu 16.04 - Part 2</h2>
+					    <h2 class="section-title">How to Setup the Hyperledger Fabric-ca Server Setup on Ubuntu 16.04 - Part 2</h2>
 					    <div class="divider-light"></div>
 
 					    <div class="page-content">
@@ -235,20 +235,21 @@
 						<aside class="sidebar-nav">
 							<h3 class="sidebar-heading">Latest Posts</h3>
 							<ul>
-                                <li><a href="setup-hyperledger-fabric.html" target="_blank">How to Setup the Hyperledger Fabric on Ubuntu</a></li>
-                                <li><a href="intro-ipfs.html" target="_blank">How to Get Started with IPFS Decentralized Storage</a></li>
-                                <li><a href="hyperledger-pre.html" target="_blank">How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</a></li>
-                                <li><a href="intro-blockchain.html" target="_blank">A Simple Introduction to Understand the Blockchain</a></li>
-                                <li><a href="meteor-wallet.html" target="_blank">How to Use Meteor to Create an Ethereum Wallet</a></li>
-                                <li><a href="intro-embark.html" target="_blank">How to Get Started with the Embark Framework</a></li>
-                                <li><a href="crypto-signature.html" target="_blank">How to Use Go to Create a Crypto Signature</a></li>
-                                <li><a href="setup-bitcoind.html" target="_blank">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
-                                <li><a href="eris-chain.html" target="_blank">How to Setup a Private Blockchain with Eris</a></li>
-                                <li><a href="sol-wallet.html" target="_blank">How to Setup a Wallet Smart Contract with Solidity</a></li>
-                                <li><a href="ethereum-private-network.html" target="_blank">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
-                                <li><a href="intro-sol-contracts.html" target="_blank">Get started with solidity and ethereum smart contracts</a></li>
-                                <li><a href="ethereumjs-sign.html" target="_blank">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
-                                <li><a href="bitcoinjs-address.html" target="_blank">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
+                                <li><a href="setup-ethereum-on-aws-1.html">Use Go-Ethereum to Setup an Ethereum Blockchain on AWS</a></li>
+                                <li><a href="setup-hyperledger-fabric.html">How to Setup the Hyperledger Fabric on Ubuntu</a></li>
+                                <li><a href="intro-ipfs.html">How to Get Started with IPFS Decentralized Storage</a></li>
+                                <li><a href="hyperledger-pre.html">How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I</a></li>
+                                <li><a href="intro-blockchain.html">A Simple Introduction to Understand the Blockchain</a></li>
+                                <li><a href="meteor-wallet.html">How to Use Meteor to Create an Ethereum Wallet</a></li>
+                                <li><a href="intro-embark.html">How to Get Started with the Embark Framework</a></li>
+                                <li><a href="crypto-signature.html">How to Use Go to Create a Crypto Signature</a></li>
+                                <li><a href="setup-bitcoind.html">How to Connect to the Bitcoin Blockchain with Bitcoind</a></li>
+                                <li><a href="eris-chain.html">How to Setup a Private Blockchain with Eris</a></li>
+                                <li><a href="sol-wallet.html">How to Setup a Wallet Smart Contract with Solidity</a></li>
+                                <li><a href="ethereum-private-network.html">Use Go-Ethereum to Setup your own Private Ethereum Blockchain</a></li>
+                                <li><a href="intro-sol-contracts.html">Get started with solidity and ethereum smart contracts</a></li>
+                                <li><a href="ethereumjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
+                                <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
 							</ul>
 						</aside>
 					</div> <!-- End Sidebar -->

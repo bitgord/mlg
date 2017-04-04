@@ -6,18 +6,18 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="A collection of expert hyperledger blockchain tutorials that explain how to install Hyperledger dependencies and execute functions such as deploy, invoke and ...">
-    <meta name="author" content="MLG Blockchain">
+    <meta name="description" content="A blockchain development tutorial that introduces AWS and walks through how to setup and configure a EC2 instance to connect an ethereum blockchain to ...">
+    <meta name="author" content="MLG Blockchain Consulting">
     <!-- for Sharing -->
-    <meta property="og:title" content="Expert Hyperledger Blockchain Development Tutorials | MLG Blockchain"/>
+    <meta property="og:title" content="Use Go-Ethereum to Setup an Ethereum Blockchain on AWS  - Part 1 | MLG Blockchain"/>
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://scontent.fyzd1-1.fna.fbcdn.net/v/t31.0-8/16113461_1203468529740802_8298128364201048788_o.jpg?oh=083f3a5ded0d20ca003f040dc24fd27c&oe=5959F050" />
+    <meta property="og:image" content="assets/img/aws1/blockchain-cloud.jpg">
     <meta property="og:image:width" content="960"/>
     <meta property="og:image:height" content="590"/>
-    <meta property="og:url" content="https://mlgblockchain.com/hyperledger-tutorials.html">
-    <meta property="og:description" content="A collection of expert hyperledger blockchain tutorials that explain how to install Hyperledger dependencies and execute functions such as deploy, invoke and" />
+    <meta property="og:url" content="https://mlgblockchain.com/setup-ethereum-on-aws-1.html">
+    <meta property="og:description" content="A blockchain development tutorial that introduces AWS and walks through how to setup and configure a EC2 instance to connect an ethereum blockchain to ..." />
     <link rel="shortcut icon" href="img/favicon.png">
-    <title>Expert Hyperledger Blockchain Development Tutorials | MLG Blockchain</title>
+    <title>Use Go-Ethereum to Setup an Ethereum Blockchain on AWS - Part 1 | MLG Blockchain</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Retina.js - Load first for faster HQ mobile images. -->
@@ -108,7 +108,7 @@
                                       <li><a href="blockchain-framework-tutorials.html">Other</a></li>
                                     </ul>
                                 </li>
-                                <li class="section-selector-2"><a class="btn page-scroll" href="contact.html">Contact</a></li> 
+                                <li class="section-selector-2"><a class="btn page-scroll" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -117,75 +117,91 @@
                 </nav>
                 </div>
                 <!-- End: Navbar Area  -->
-  <!-- Begin Top Content Area -->
-	    <section id="top-content-area" data-speed="100">
-		    <div class="container">
-			    <div class="row">
-			    	<div class="col-md-12">	
-                        <br><br><br>
-						<h1>MLG Blockchain Development Tutorials</h1>
-                        <p>A collection of blockchain development tutorials from our team of experts. You can find also find <a href="bitcoin-tutorials">Bitcoin Blockchain tutorials</a>, <a href="ethereum-tutorials">Ethereum Blockchain tutorials</a>, <a href="eris-tutorials">Eris blockchain tutorials</a> and others in our collection of resources.</p>
-
-                        <p><a href="contact.html">Contact us</a> if you have a specific request for a bitcoin blockchain tutorial to be made or if you have any questions about the content.</p>
-           	    	</div>
-				</div>
-			</div>
-		</section> <!-- End Top Content Area -->
-
+  
 		<!-- Begin Content -->
-		<section>
+		<section class="post-content">
 			<div class="container">
 				<div class="row">
-
+                    <br><br><br>
 					<!-- Begin page content -->
 					<div class="col-xs-12 col-md-9 col-md-push-3">
+					
+						<div class="content-box">
+					    	<p class="blog-date"><span>30</span><br>March<br>2017</p>
+					        <img src="assets/img/aws1/blockchain-cloud.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+					    </div>
+					    <div class="post-info">
+					       	<span>Michael Gord  |  ethereum,  blockchain, geth, aws, cloud,  private blockchain, development, go-ethereum</span>
+					    </div>
 
-                        <article class="content-box-dark-bg blog-post">
-                            <p class="blog-date"><span>29</span><br>Mar<br>2017</p>
-                            <img src="assets/img/blog/hyperledger.png" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
-                            <div class="content-box-info">
-                                <div class="post-info">
-                                    <span>Akarsh Agarwal |  hyperledger,  blockchain, docker, golang, blockchain development, hyperledger development, docker-engine</span>
-                                </div>
-                                <a href="setup-hyperledger-fabric.html" target="_blank">
-                                    <h2 class="section-title">How to Setup the Hyperledger Fabric on Ubuntu - Part 2</h2>
-                                </a>
-                                <div class="divider-light"></div>
-                                <p>This tutorial is the second in a three part series on how to setup the Hyperledger blockchain fabric on ubuntu and execute Deploy, Invoke and Query ...
-                                </p>
-                            </div>
-                            <a href="-setuphyperledger-fabric.html">
-                                <div class="btn-read-more" target="_blank">Read More</div>
-                            </a>
-                        </article>
+					    <h2 class="section-title">Use Go-Ethereum to Setup an Ethereum Blockchain on AWS  - Part 1</h2>
+					    <div class="divider-light"></div>
 
-                        <article class="content-box-dark-bg blog-post">
-                            <p class="blog-date"><span>6</span><br>Mar<br>2017</p>
-                            <img src="https://i.ytimg.com/vi/EKa5Gh9whgU/maxresdefault.jpg" alt="How to Install Hyperledger Fabric v1.0 on Ubuntu 16.04 and execute Deploy, Invoke and Query - Part I">
-                            <div class="content-box-info">
-                                <div class="post-info">
-                                    <span>Akarsh Agarwal |  hyperledger,  blockchain,  docker, golang, blockchain development, hyperledger development, docker-engine</span>
-                                </div>
-                                <a href="hyperledger-pre.html" target="_blank">
-                                    <h2 class="post-title">Prerequesites to Install Hyperledger Fabric on Ubuntu - Part I</h2>
-                                </a>
-                                <div class="divider-light"></div>
-                                <p>This tutorial goes over how to install the Hyperledger Fabric v1.0 on Ubuntu and how to get started using the Hyperledger framework ...
-                                </p>
-                            </div>
-                            <a href="hyperledger-pre.html">
-                                <div class="btn-read-more" target="_blank">Read More</div>
-                            </a>
-                        </article>
+					    <div class="page-content">
+                            <p>Often in a blockchain development cycle you will need to put your blockchain on the cloud to enable other nodes to attach to it for testing and development, or for other miners to mine for proof of work blockchain. The two most popular cloud providers for a blockchain solution are Amazon Web Services (AWS) and Microsoft Azure. Both have the option to start with a free trial and to only pay based on your usage.
+                            </p><br />
+					    	<p>This is a three part blockchain development tutorial series on Ethereum that will focus on how to launch your own Ethereum blockchain using Geth on an AWS server, then connect it to another node to start mining or interact with the same smart contracts. This first tutorial will explain how to first configure and connect to your Amazon Virtual Machine. The second section will explain how to install and configure your Ethereum blockchain using Geth on Ubuntu. The third section will walk through how to connect a second node to your cloud instance of Ethereum. We will follow-up with more tutorials that explain how to launch a blockchain instance on other cloud providers such as Azure and Digital Ocean.
+                            </p>
+                            <p>
+                                If you would prefer to learn how to <a href="ethereum-private-network.html">setup a private Ethereum blockchain locally you can check out our Ethereum development tutorial on how to setup an Ethereum blockchain using Geth in your terminal</a>. You can also find other <a href="ethereum-tutorials.html">Ethereum blockchain tutorials</a> at mlgblockchain.com/ethereum-tutorials.html.
+                            </p>
+                            <h4>Setup Amazon EC2 Instance</h4>
+                            <p>To begin you need to sign-up to AWS console and launch at least two EC2 Ubuntu 16.04 servers. You can launch your two EC2 Ubuntu Servers by going to the <a href="https://aws.amazon.com">AWS website</a> and then in the menu you go to the products tab, then to compute and then click on EC2. On the name page click on get started with Amazon EC2 and then register and verify an email. If you have already setup EC2 servers you can continue to the next section.
+                            </p>
+                            <p>Once you have registered, sign into your Amazon console. In the navigation bar, hover over services and then click on EC2 which will bring you to the screen below. As you can see, this MLG Blockchain account is currently running 2 EC2 instances, with 2 volumes, 1 key pair and 3 security groups. Before you have any account activity your numbers should all be at 0. Look for the second section called “Create Instance” and click the button “Launch Instance”.
+                            <img src="assets/img/aws1/instance-screen.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                            You can also click on the tab on the left called “Instances” which should bring you to the screen below that shows all the servers that are running on your account. From here you can click on the blue "Launch Instance" button on the top left, which will bring you to the same screen as clicking the button on the previous screen. This Instance menu shows you the name of each instance you are currently running, the unique identifier, the type, the zone the instance is running (you can run your cloud servers from anywhere), the state, whether it is working, any problems, and then a last field called public DNS which I have left out of this picture to avoid anyone trying to attach to either instance.
+                            </p>
+                            <img src="assets/img/aws1/instance-examples.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                            After you click on "Launch Instance" it will bring you to the screen below, to choose a Amazon Machine Image (AMI). To follow along with this Ethereum tutorial click on the fourth option to setup a Ubuntu Server 16.04 LTS server, though you should be able to setup an Ethereum blockchain with Geth on any of the servers shown here.
+                            </p>
+                            <img src="assets/img/aws1/ami.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                                After you select your AMI you will need to select your instance type. We chose a medium server to have more memory and not crash during testing or development, but you can choose any size depending on your expected usage.
+                            </p>
 
+                            <img src="assets/img/aws1/instance-type.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                                You can continue past the next screen to configure your instance details as you don’t need to make any changes. The next step is to review all the details you submitted to ensure that they are all correct. You can either check the box to delete on termination or not. If it is checked it means that if you delete a EC2 instance, it will also delete the data on it. We recommend this option to avoid storing extra data in the cloud. Once you have completed all your configuration you need to add in tags, such as the name of the instance. You can name your instance whatever you want. As shown above, the first MLG node is called mlg-ethchain and the second is called mlg-node2.
+                            </p>
+                            <h4>Setup Security Groups</h4>
+                            <p>Setting up a security group on a Amazon EC2 instance is done to let the server know which ports to accept inbound or outbound data from. First you need to name your security group and include a description, or you can use an existing security group if you have already set one up. To follow along with the tutorial, we have shown which inbound ports we open. The first SSH type is the default one. The other two are to listen to the Geth network will will be setting up in the second part of this tutorial series. Afterwards, click on confirm and launch and then congratulations you have configured your first Instance on AWS!
+                            </p>
+                            <img src="assets/img/aws1/security-group.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <h4>Setup Key Pair</h4>
+                            <p>
+                                As you launch your EC2 instance, you will see an alert show up to either select an existing key pair or to create a new key pair. Setting up your key pair is to enable you to securely SSH into your instance, while ensuring that others cannot. As shown in the image, your key pair consists of a public key which AWS stores and a private key which you store on your computer. Make sure that you have checked the box to acknowledge that you have access to the selected private key file and then click on choose a new key pair and then click on "Launch Instances".  
+                            </p>
+                            <img src="assets/img/aws1/keypair.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                                Now that you have completed activating your cloud server and you have downloaded your key pair you should be shown a screen to confirm your Instance has been setup properly and an ID for your Instance. If you click on the ID it will bring you back to your instances section shown above and display your new instance loading. It might take a few minutes to complete loading, but be patient as you need it to complete for it to return the public IP that enables you to connect to your cloud instance. Once if is completed loading and it has returned your public IP you are able to SSH into your EC2 from your terminal, using the key pair that you just created.
+                            </p>
+                            <h4>SSH into your EC2 Instance</h4>
+                            <p>
+                                From your terminal, change directory to the folder that has the key pair you just downloaded and input the command below. This command should take some time to respond and when it does it will return your ECDSA key fingerprint and ask if you want to continue connecting. Type yes, then click enter, and your terminal will respond that you have permanently added your public IP to the list of known hosts, which will give you command line access to your machine. If it is configured properly, you should see a success message returned afterwards. 
+                            </p>
+                            <code>ssh -i <nameOfKey>.pem ubuntu@<insertPublicIP></code>
+                            <img src="assets/img/aws1/ubuntu-connected.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <p>
+                                From here you can see your working directory you can connect your Ethereum blockchain to. Below, you can see the contents of our Ubuntu server. We will explain how to install Geth and configure your blockchain in the next section of this tutorial.
+                            </p>
+                            <img src="assets/img/aws1/ubuntu-contents.jpg" class="img-responsive" alt="Connect Ethereum on AWS">
+                            <hr>
+                            <h4>About MLG Blockchain</h4>
+                            <p>
+                                <a href="index.html">MLG Blockchain</a> is a blockchain development and consulting firm based in Toronto that is focused on building next generation applications using blockchain and smart contract technology. View all our <a href="learn.html">blockchain development tutorials</a> at <a href="learn.html">www.mlgblockchain.com/learn.html</a>.
+                            </p>
 
-					</div> <!-- End page content -->
+                        </div> <!-- End row -->
+                    </div> <!-- End page content -->
 
-					<!-- Begin Sidebar -->
-					<div class="col-xs-12 col-md-3 col-md-pull-9">
-						<aside class="sidebar-nav">
-							<h3 class="sidebar-heading">Latest Posts</h3>
-							<ul>
+                    <!-- Begin Sidebar -->
+                    <div class="col-xs-12 col-md-3 col-md-pull-9">
+                        <aside class="sidebar-nav">
+                            <h3 class="sidebar-heading">Latest Posts</h3>
+                            <ul>
                                 <li><a href="setup-ethereum-on-aws-1.html">Use Go-Ethereum to Setup an Ethereum Blockchain on AWS</a></li>
                                 <li><a href="setup-hyperledger-fabric.html">How to Setup the Hyperledger Fabric on Ubuntu</a></li>
                                 <li><a href="intro-ipfs.html">How to Get Started with IPFS Decentralized Storage</a></li>
@@ -201,16 +217,16 @@
                                 <li><a href="intro-sol-contracts.html">Get started with solidity and ethereum smart contracts</a></li>
                                 <li><a href="ethereumjs-sign.html">Use Ethereumjs-tx and Web3 to Send an Ether Transaction using your Terminal</a></li>
                                 <li><a href="bitcoinjs-address.html">Use Bitcoinjs to generate a new Bitcoin address and private key</a></li>
-							</ul>
-						</aside>
-					</div> <!-- End Sidebar -->
+                            </ul>
+                        </aside>
+                    </div> <!-- End Sidebar -->
 
 				</div> <!-- End row -->
 			</div> <!-- End container -->
 		</section> <!-- End Content section -->
 
 
-        <section class="cta-form" id="contact" style="background-image: url('assets/img/homepage/plexus.jpg')">
+         <section class="cta-form" id="contact" style="background-image: url('assets/img/homepage/plexus.jpg')">
         <div class="container text-center">
             <h4 style="color:white">Be the first to hear about the newest advancements in blockchain technology!</h3>
             <hr class>
@@ -264,6 +280,8 @@
         </div>
     </footer>
 
+        <!-- SCRIPTS 
+        ========================================-->
         <!-- Core Scripts -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
@@ -283,6 +301,8 @@
     <script src="assets/js/plugins/jqBootstrapValidation.js"></script>
     <!-- Vitality Theme Scripts -->
     <script src="assets/js/vitality.js"></script>
-</body>
+
+    
+    </body>
 
 </html>
